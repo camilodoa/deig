@@ -11,10 +11,6 @@ from keras.layers import LeakyReLU, Dropout
 from keras.layers import BatchNormalization
 from keras.optimizers import Adam, RMSprop
 
-class Fitness:
-    def __init__(self):
-        pass
-
 class Discriminator:
     def __init__(self, dataset='../datasets/africa_fabric'):
         self.network = None
