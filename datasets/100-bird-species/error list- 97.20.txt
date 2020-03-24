@@ -1,0 +1,23 @@
+Classification subject: BIRDS There were 21 errors in 750 tests for an accuracy of  97.20 
+         CLASS                     FILENAME      
+   AMERICAN REDSTART         AMERICAN REDSTART\4.jpg
+    BALTIMORE ORIOLE         BALTIMORE ORIOLE\1.jpg
+    BALTIMORE ORIOLE         BALTIMORE ORIOLE\2.jpg
+      BARN SWALLOW            BARN SWALLOW\5.jpg 
+    BIRD OF PARADISE         BIRD OF PARADISE\1.jpg
+    BLACK FRANCOLIN          BLACK FRANCOLIN\2.jpg
+     BLACK SKIMMER           BLACK SKIMMER\1.jpg 
+    DARK EYED JUNCO          DARK EYED JUNCO\2.jpg
+   ELLIOTS  PHEASANT         ELLIOTS  PHEASANT\2.jpg
+      GOLDEN EAGLE            GOLDEN EAGLE\2.jpg 
+     HOUSE SPARROW           HOUSE SPARROW\2.jpg 
+      LARK BUNTING            LARK BUNTING\1.jpg 
+     LONG-EARED OWL          LONG-EARED OWL\5.jpg
+   NORTHERN CARDINAL         NORTHERN CARDINAL\3.jpg
+    NORTHERN GOSHAWK         NORTHERN GOSHAWK\2.jpg
+         OSPREY                  OSPREY\1.jpg    
+        PELICAN                 PELICAN\2.jpg    
+      PURPLE FINCH            PURPLE FINCH\1.jpg 
+    PURPLE SWAMPHEN          PURPLE SWAMPHEN\1.jpg
+    PURPLE SWAMPHEN          PURPLE SWAMPHEN\2.jpg
+     TURKEY VULTURE          TURKEY VULTURE\2.jpg
