@@ -16,4 +16,4 @@
 
 - Set up GitHub accounts
 
-- Set up a Slack channel
+- Join Slack channel: https://join.slack.com/t/ec-networks/shared_invite/zt-d2zlhyvq-0nHuia~~UffdUTl8EGBUGg
