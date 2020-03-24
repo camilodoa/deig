@@ -32,7 +32,7 @@ to copy the repo locally.
 
 - Read up on Neural Networks
 
-- Set up GitHub accounts
+- ~Set up GitHub accounts~
 
 - Join [Slack channel](https://join.slack.com/t/ec-networks/shared_invite/zt-d2zlhyvq-0nHuia~~UffdUTl8EGBUGg)
 
