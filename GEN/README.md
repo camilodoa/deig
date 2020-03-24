@@ -8,7 +8,7 @@ GEN applies an evolutionary approach to the question of Computer-Generated Image
 
 ## Fitness
 
-The fitness function designed in src/fitness.py is a customizable deep neural network discriminator. It is trained on parameterized datasets and is used to determine the confidence that a given image belongs to the dataset it was trained on.
+The fitness function designed in `discriminator.py` is a customizable deep neural network discriminator. It is trained on parameterized datasets and is used to determine the confidence that a given image belongs to the dataset it was trained on.
 
 ## Getting started
 
