@@ -18,23 +18,29 @@ git clone https://github.com/camilodoa/EC-Networks.git
 
 to copy the repo locally.
 
+## About
+
+We're creating a more efficient GAN-alternative technique that leverages evolution as an adversarial process. We are evolving a population of images by using a discriminator output as their "fitness" and updating them with random mutation/recombination at each generational step.
+
 ## To Do
 
-- Research what has been done with Evolutionary Image Generation
+- Read up on Neural Networks
 
-- Research classical [GANS](https://github.com/NVlabs/stylegan)
+- Find a core/cloud computing service (Ask Prof. Spector)
+
+- Pick a dataset (We're thinking of starting with MNIST)
 
 - Look into frameworks for ML in Clojure / Porting ML into Clojure
+
+- Research classical [GANS](https://github.com/NVlabs/stylegan)
 
 - Look into using different discriminators
 
   - Results can inform what the classifiers are doing
 
-- Read up on Neural Networks
-
 - ~Set up GitHub accounts~
 
-- Join [Slack channel](https://join.slack.com/t/ec-networks/shared_invite/zt-d2zlhyvq-0nHuia~~UffdUTl8EGBUGg)
+- ~Join [Slack channel](https://join.slack.com/t/ec-networks/shared_invite/zt-d2zlhyvq-0nHuia~~UffdUTl8EGBUGg)~
 
 ## Notes
 
