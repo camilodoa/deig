@@ -44,6 +44,22 @@ git clone https://github.com/camilodoa/EC-Networks.git
 
 to copy the repo locally.
 
+If you want to add something to git, you do:
+
+```bash
+git add .
+git commit -m "your message"
+git push
+```
+
+For simple merging you want to do:
+```bash
+# In the merge message do:
+# ESC
+# :wq
+git push
+```
+
 ## To Do
 
 - Pick a name for our project (GEN? DEIG?)
