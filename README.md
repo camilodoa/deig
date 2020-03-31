@@ -42,6 +42,8 @@ to copy the repo locally.
 
 ## To Do
 
+- Pick a name for our project (GEN? DEIG?)
+
 - Read up on Neural Networks
 
 - Find a core/cloud computing service (Ask Prof. Spector)
