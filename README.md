@@ -16,6 +16,8 @@ We need to divide people up to take care of the following items:
 
 - Testing the discriminator with MNIST Dataset
 
+- Using Python functions in a Clojure script
+
 ## Getting started with git
 
 First, install [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) so you can access it in your shell (alternatively you can use a git-helper application like [GitHub Desktop](https://desktop.github.com/)). If you have a Mac, I would recommend installing [Homebrew](https://brew.sh/), and then running
