@@ -4,6 +4,18 @@
 
 We're creating a more efficient GAN-alternative technique that leverages evolution as an adversarial process. We are evolving a population of images by using a discriminator output as their "fitness" and updating them with random mutation/recombination at each generational step.
 
+## Teams
+
+We need to divide people up to take care of the following items:
+
+- Random image creation with Clojure
+
+- Random image mutation
+
+- Writing the discriminator
+
+- Testing the discriminator with MNIST Dataset
+
 ## Getting started with git
 
 First, install [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) so you can access it in your shell (alternatively you can use a git-helper application like [GitHub Desktop](https://desktop.github.com/)). If you have a Mac, I would recommend installing [Homebrew](https://brew.sh/), and then running
