@@ -1,6 +1,6 @@
-# GEN
+# DEIG
 
-Generative Evolutionary Network.
+Deep Evolutionary Image Generation.
 
 ## About
 
