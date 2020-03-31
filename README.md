@@ -14,9 +14,11 @@ We need to divide people up to take care of the following items:
 
 - Writing the discriminator
 
-- Testing the discriminator with MNIST Dataset
+  - Testing the discriminator with MNIST Dataset
 
 - Using Python functions in a Clojure script
+
+- Writing/sketching out the skeleton of our evolutionary algorithm with pretend APIs
 
 ## Getting started with git
 
