@@ -2,11 +2,9 @@
 
 ## About
 
-We're creating a more efficient GAN-alternative technique that leverages evolution as an adversarial process. We are evolving a population of images by using a discriminator output as their "fitness" and updating them with random mutation/recombination at each generational step.
+We're creating an efficient GAN-alternative technique that leverages evolution for image generation. We are evolving a population of images by using a discriminator output as their "fitness" and updating them with random mutation/recombination at each generational step.
 
 ## Teams
-
-We need to divide people up to take care of the following items:
 
 1. Random image creation with Clojure (Caroline)
 
@@ -40,7 +38,7 @@ git clone https://github.com/camilodoa/EC-Networks.git
 
 to copy the repo locally.
 
-If you want to add something to git, you do:
+If you want to push your changes to GitHub, you do:
 
 ```bash
 git add .
@@ -52,7 +50,7 @@ For simple merging you want to do:
 ```bash
 # In the merge message do:
 # ESC
-# :wq
+# :wq ENTER
 git push
 ```
 
