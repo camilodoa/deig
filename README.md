@@ -10,7 +10,7 @@ We need to divide people up to take care of the following items:
 
 1. Random image creation with Clojure (Caroline)
 
-2. Editing images with Clojure (Ben)
+2. Editing images with Clojure (Ben) (maybe the [imagez](https://github.com/mikera/imagez) library can help!)
 
 3. Researching what best criteria of repopulation we want to use (and writing it!) (i.e. elitism, recombination, mutation, etc) (Sunghoon)
 
