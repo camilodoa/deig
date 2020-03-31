@@ -4,6 +4,10 @@
 
 We're creating a more efficient GAN-alternative technique that leverages evolution as an adversarial process. We are evolving a population of images by using a discriminator output as their "fitness" and updating them with random mutation/recombination at each generational step.
 
+## Future goals
+
+Use an SVM discriminator and compare the output with a neural net discriminator.
+
 ## Teams
 
 We need to divide people up to take care of the following items:
