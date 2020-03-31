@@ -8,19 +8,19 @@ We're creating a more efficient GAN-alternative technique that leverages evoluti
 
 We need to divide people up to take care of the following items:
 
-1. Random image creation with Clojure
+1. Random image creation with Clojure (Caroline)
 
-2. Editing images with Clojure
+2. Editing images with Clojure (Ben)
 
-3. Researching what best criteria of repopulation we want to use (and writing it!) (i.e. elitism, recombination, mutation, etc)
+3. Researching what best criteria of repopulation we want to use (and writing it!) (i.e. elitism, recombination, mutation, etc) (Sunghoon)
 
-4. Writing the discriminator
+4. Writing the discriminator (Camilo)
 
   - And testing the discriminator with MNIST Dataset
 
-5. Using Python functions in a Clojure script
+5. Using Python functions in a Clojure script (Sergei)
 
-6. Writing/sketching out the skeleton of our evolutionary algorithm with pretend APIs
+6. Writing/sketching out the skeleton of our evolutionary algorithm with pretend APIs (Mahran)
 
 ## Getting started with git
 
