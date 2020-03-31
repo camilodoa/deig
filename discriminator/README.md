@@ -4,7 +4,7 @@ Generative Evolutionary Network.
 
 ## About
 
-GEN applies an evolutionary approach to the question of Computer-Generated Images. Over time, a population of images are evolved using a pre-trained discriminator network as the population's fitness function.
+Deep Evolutionary Image Generation (DEIG) applies an evolutionary approach to the question of Computer-Generated Images. Over time, a population of images are evolved using a pre-trained discriminator network as the population's fitness function.
 
 ## Fitness
 
