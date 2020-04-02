@@ -12,18 +12,18 @@ from keras.layers import BatchNormalization
 from keras.optimizers import Adam, RMSprop
 
 class Discriminator:
-    def __init__(self, dataset='../datasets/africa_fabric'):
+    def __init__(self, dataset='../datasets/mnist', is_separated=True):
         self.network = None
         self.model = None
         self.trained = None
         self.cleaned = False
-        self.clean(dataset)
+        self.clean(dataset, is_separated)
 
         '''
         Dataset should be -> REAL_IMG : 0 && FAKE_IMG : 1
         '''
 
-    def clean(self, dataset):
+    def clean(self, dataset, is_separated):
         if self.cleaned: return True
 
         paths = {
