@@ -18,5 +18,7 @@ Sims utilized elitist selection, taking the top two "interesting" images and cro
 
 Also created an image repository. If the diversity of the pixels/image(s) is very low, we can recall images from previous generations and cross them over with the parents of the newer generations.
 
-Currently, my thoughts are that we run a similar breeding technique of selecting the most interesting images (fitness function pending) and crossing them over, while having a stash of images from previous generations to use if diversity dips below a certain theshold.
+Currently, my thoughts are that we run a similar breeding technique of selecting the most interesting images (fitness function pending) and crossing them over, while having a stash of images from previous generations to use if diversity dips below a certain threshold.
 
+Group thoughts:
+Instead of diversity scores leading to pulling images from the repository, we could have a  measure of change in error across generations. If we are at a standstill, we can use the image repository then.
