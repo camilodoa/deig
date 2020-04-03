@@ -1,4 +1,4 @@
-# Networks
+# Deep Evolutionary Image Generation
 
 ## About
 
@@ -54,35 +54,17 @@ For simple merging you want to do:
 git push
 ```
 
-## To Do
-
-- Pick a name for our project (GEN? DEIG?)
-
-- Read up on Neural Networks
-
-- Find a core/cloud computing service (Ask Prof. Spector)
-
-- Pick a dataset (We're thinking of starting with MNIST)
-
-- Look into frameworks for ML in Clojure / Porting ML into Clojure
-
-- Research classical [GANS](https://github.com/NVlabs/stylegan)
-
-- Look into using different discriminators
-
-  - Results can inform what the classifiers are doing
-
-- ~Set up GitHub accounts~
-
-- ~Join [Slack channel](https://join.slack.com/t/ec-networks/shared_invite/zt-d2zlhyvq-0nHuia~~UffdUTl8EGBUGg)~
-
 ## Notes
 
-Notes people take on research/frameworks should be put in the `/text` directory.
+Notes people take on their progress should be put in the `/text` directory.
 
 ## Datasets
 
 If you find cool image datasets, please feel free to put them in the `/datasets` directory!
+
+## Communication
+
+We have a [Slack channel](https://join.slack.com/t/ec-networks/shared_invite/zt-d2zlhyvq-0nHuia~~UffdUTl8EGBUGg).
 
 ## Future goals
 
