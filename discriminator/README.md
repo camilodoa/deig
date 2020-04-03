@@ -36,8 +36,12 @@ from discriminator import Fitness
 
 path_to_data = '../datasets/mnist'
 f = Fitness(path_to_data)
-f.train()
-f.predict(np.array)
+
+.
+.
+.
+
+fitness = f.evaluate(img)
 ```
 
 All datasets should have the same format:

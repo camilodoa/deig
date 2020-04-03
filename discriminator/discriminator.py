@@ -75,7 +75,7 @@ class Discriminator:
         dropout = 0.4
         optimizer = RMSprop(lr=0.0002, decay=6e-8)
 
-        self.model = tf.keras.models.Sequential([
+        self.model = Sequential([
             # Note the input shape is 256x256 with 3 color chanels
             # All images are automatically resized to this
             # This is the first convolution
