@@ -26,7 +26,7 @@ examples:
 
 If we can control this randomness, we should be golden.
 
-## GANS
+## Training in Generative Adversarial Networks
 
 In classical GAN architectures, both networks train at the same time. This means
 that the discriminator is being trained on images from the dataset and generated
@@ -34,7 +34,7 @@ images at the same time. For our purposes, this won't work. We need a
 discriminator that is already trained by evolution time. Otherwise, our
 evolutionary algorithm may terminate early because our fitness function /
 discriminator isn't finely tuned yet. It is also difficult to train a discriminator on just a set of real images, because it might learn an incorrect behavior (e.g. all images are real!). This is why I'm thinking we should use a pre-trained discriminator. However,
-we could also use a classifier, and use the mse of the predicted output.
+we could also use a classifier, and use the MSE of the predicted output.
 
 Some research has been conducted on addressing a similar problem:
 generating images from limited data. In the

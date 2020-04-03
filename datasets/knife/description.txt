@@ -1,2 +1,0 @@
-train images = 400
-test images = 100

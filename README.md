@@ -12,11 +12,9 @@ We're creating an efficient GAN-alternative technique that leverages evolution f
 
 3. Researching what best criteria of repopulation we want to use (and writing it!) (i.e. elitism, recombination, mutation, etc) (Sunghoon)
 
-4. Writing the discriminator (Camilo)
+4. Writing the discriminator and the fitness API (Camilo)
 
-  - And testing the discriminator with MNIST Dataset
-
-5. Using Python functions in a Clojure script (Sergei)
+5. Use of Python functions in a Clojure script (Sergei)
 
 6. Writing/sketching out the skeleton of our evolutionary algorithm with pretend APIs (Mahran)
 
