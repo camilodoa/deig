@@ -1,2 +1,4 @@
 tensorflow
 numpy
+pathlib
+keras_preprocessing

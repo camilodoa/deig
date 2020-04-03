@@ -1,6 +1,8 @@
 # Fitness
 
-The fitness function designed in `discriminator.py` is a customizable deep neural network discriminator. It is trained on parameterized datasets and is used to determine the confidence that a given image belongs to the dataset it was trained on.
+The fitness function is an API for the customizable deep neural network discriminator class in `discriminator.py`. It is trained on parameterized datasets and is used to determine the confidence that a given image belongs to the dataset it was trained on.
+
+**This discriminator is currently only written to work on categorical datasets.**
 
 ## Getting started
 
@@ -20,4 +22,28 @@ which will install the python3 interpreter and the pip3 package manager. If you 
 
 ## Project structure
 
-A Discriminator class (to be ported over to Clojure with some sort of library) is written in `discriminator.py`. This discriminator will act as our fitness function.
+A Discriminator class is written in `discriminator.py`. This discriminator will act as the underlying mechanisms of our fitness function.
+
+`fitness.py` is the API for discriminator.py that is ported to Clojure.
+
+## Usage
+
+To access the discriminator, do:
+
+```python
+from discriminator import Fitness
+
+
+path_to_data = '../datasets/mnist'
+f = Fitness(path_to_data)
+f.train()
+f.predict(np.array)
+```
+
+All datasets should have the same format:
+
+```
+├── data
+│   ├── test
+│   └── train
+```
