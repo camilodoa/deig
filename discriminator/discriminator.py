@@ -26,7 +26,7 @@ import matplotlib.pyplot as plt
 
 
 class Discriminator:
-    def __init__(self, dataset='../datasets/mnist/'):
+    def __init__(self, dataset='../datasets/fashionmnist/'):
         self.dataset = dataset
         self.model = None
         self.trained = False
@@ -153,7 +153,7 @@ class Discriminator:
 
         self.trained = True
 
-        acc = history.history['acc']
+        acc = history.history['accuracy']
         val_acc = history.history['val_acc']
         loss = history.history['loss']
         val_loss = history.history['val_loss']
@@ -169,7 +169,7 @@ class Discriminator:
 
     def example(self):
         with CustomObjectScope({'GlorotUniform': glorot_uniform()}):
-            if self.model is None: self.model = load_model('mtg-types.h5')
+            if self.model is None: self.model = load_model('model.h5')
 
             for _, dirnames, filenames in os.walk(Path(self.dataset + './train')):
                 example = random.choice(filenames)
