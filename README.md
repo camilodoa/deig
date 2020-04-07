@@ -62,6 +62,8 @@ Then, run
 git lfs install
 ```
 
+[This](https://medium.com/@AyunasCode/how-to-push-large-files-to-github-253d05cc6a09) is a good tutorial for how to commit really large files.
+
 ## Notes
 
 Notes people take on their progress should be put in the `/text` directory.
