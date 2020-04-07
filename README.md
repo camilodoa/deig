@@ -52,6 +52,16 @@ For simple merging you want to do:
 git push
 ```
 
+## Installation
+
+You'll need Git Large File Storage. [Install](https://git-lfs.github.com/) it.
+
+Then, run
+
+```bash
+git lfs install
+```
+
 ## Notes
 
 Notes people take on their progress should be put in the `/text` directory.
