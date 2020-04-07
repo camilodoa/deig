@@ -22,26 +22,14 @@ which will install the python3 interpreter and the pip3 package manager. If you 
 
 ## Project structure
 
-A Discriminator class is written in `discriminator.py`. This discriminator will act as the underlying mechanisms of our fitness function.
-
-`fitness.py` is the API for discriminator.py that is ported to Clojure.
+A Discriminator class is written in `discriminator.py`. This discriminator is used for training the underlying mechanisms of our fitness function.
 
 ## Usage
 
-To access the discriminator, do:
+To run a sample discriminator prediction, run:
 
-```python
-from discriminator import Fitness
-
-
-path_to_data = '../datasets/mnist'
-f = Fitness(path_to_data)
-
-.
-.
-.
-
-fitness = f.evaluate(img)
+```bash
+python3 discriminator.py
 ```
 
 All datasets should have the same format:

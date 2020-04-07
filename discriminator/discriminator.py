@@ -11,7 +11,7 @@ import tensorflow as tf
 from keras_preprocessing import image
 from keras_preprocessing import image
 from keras_preprocessing.image import ImageDataGenerator
-
+from tensorflow.keras.initializers import glorot_uniform
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Activation, Flatten, Reshape
 from tensorflow.keras.layers import Conv2D, Conv2DTranspose, UpSampling2D
@@ -26,14 +26,14 @@ import matplotlib.pyplot as plt
 
 
 class Discriminator:
-    def __init__(self, dataset='../datasets/fashionmnist/'):
+    def __init__(self, dataset=Path('../datasets/mnist/')):
         self.dataset = dataset
         self.model = None
         self.trained = False
         self.categories = 0
 
         # Count categories from dataset
-        for _, dirnames, filenames in os.walk(Path(self.dataset + './train')):
+        for _, dirnames, filenames in os.walk(self.dataset / 'train'):
             self.categories += len(dirnames)
 
     def train(self):
@@ -169,21 +169,25 @@ class Discriminator:
 
     def example(self):
         with CustomObjectScope({'GlorotUniform': glorot_uniform()}):
-            if self.model is None: self.model = load_model('model.h5')
+            model = load_model('./model.h5')
 
-            for _, dirnames, filenames in os.walk(Path(self.dataset + './train')):
+            for _, dirnames, filenames in os.walk(self.dataset / 'test'):
                 example = random.choice(filenames)
 
-            img = image.load_img(path.format(example), target_size=(256, 256))
-            x = image.img_to_array(img)
-            # x = np.expand_dims(x, axis=0)
+            img = image.load_img(self.dataset / 'test' / example,
+                                target_size=(28, 28), color_mode="grayscale")
 
-            classes = self.model.predict(x, batch_size=10)
-            print(classes, ' ', name_id_map[classes[0]])
+            x = image.img_to_array(img)
+            x = np.expand_dims(x, axis=0)
+            x = np.vstack([x])
+
+            classes = model.predict(x, batch_size=1)[0]
+
+            print(classes)
             img.show()
 
 if __name__ == '__main__':
     # Usage
     d = Discriminator()
-    d.train()
+    # d.train()
     d.example()

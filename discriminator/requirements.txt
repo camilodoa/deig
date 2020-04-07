@@ -3,3 +3,4 @@ numpy
 pathlib
 keras_preprocessing
 matplotlib
+h5py
