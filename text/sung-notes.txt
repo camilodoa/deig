@@ -1,0 +1,24 @@
+Sung Kwak Notes
+======
+
+For image evolution:
+
+https://www.ri.cmu.edu/pub_files/pub3/baluja_shumeet_1994_1/baluja_shumeet_1994_1.pdf
+
+"Towards Automated Artificial Evolution for Computer-generated Images"
+
+"In 1991, Sims presented a novel approach for combining genetic algorithms with
+computer graphics (Sims, 1991). The system which Sims designed allows users to
+evolve complex figures without concern for the mathematics used to generate the
+images. The interface is simple: given a number of initially random figures, the users
+select the two which are the most interesting. These figures are used as ‘parents’ to
+produce a subsequent population of ‘offspring’. The offspring possess some attributes of both parent images. From the new population of images, two parents are selected, and the cycle continues..."
+
+Sims utilized elitist selection, taking the top two "interesting" images and crossing them over to make offspring with mutated elements. 
+
+Also created an image repository. If the diversity of the pixels/image(s) is very low, we can recall images from previous generations and cross them over with the parents of the newer generations.
+
+Currently, my thoughts are that we run a similar breeding technique of selecting the most interesting images (fitness function pending) and crossing them over, while having a stash of images from previous generations to use if diversity dips below a certain threshold.
+
+Group thoughts:
+Instead of diversity scores leading to pulling images from the repository, we could have a  measure of change in error across generations. If we are at a standstill, we can use the image repository then.

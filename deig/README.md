@@ -1,10 +1,22 @@
 # deig
 
-FIXME: description
+Deep Evolutionary Image Generation.
 
-## Installation
+## About
 
-Download from http://example.com/FIXME.
+Deep Evolutionary Image Generation (DEIG) applies an evolutionary approach to the question of Computer-Generated Images. Over time, a population of images are evolved using a pre-trained discriminator network as the population's fitness function.
+
+This directory is the root directory for the Evolutionary Algorithm. It imports the fitness function from `../discriminator/discriminator.py` and translates it into Clojure for use in EC.
+
+## Getting Started
+
+ If you have a Mac and you have [Homebrew](https://brew.sh/) installed, you can simply run:
+
+ ```bash
+ brew install clojure
+ ```
+
+to allow you to access the Clojure interpreter from the command line.
 
 ## Usage
 
