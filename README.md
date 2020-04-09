@@ -1,28 +1,20 @@
-# Networks
+# Deep Evolutionary Image Generation
 
 ## About
 
-We're creating a more efficient GAN-alternative technique that leverages evolution as an adversarial process. We are evolving a population of images by using a discriminator output as their "fitness" and updating them with random mutation/recombination at each generational step.
-
-## Future goals
-
-Use an SVM discriminator and compare the output with a neural net discriminator.
+We're creating an efficient GAN-alternative technique that leverages evolution for image generation. We are evolving a population of images by using a discriminator output as their "fitness" and updating them with random mutation/recombination at each generational step.
 
 ## Teams
 
-We need to divide people up to take care of the following items:
-
 1. Random image creation with Clojure (Caroline)
 
-2. Editing images with Clojure (Ben)
+2. Editing images with Clojure (Ben) (maybe the [imagez](https://github.com/mikera/imagez) library can help!)
 
 3. Researching what best criteria of repopulation we want to use (and writing it!) (i.e. elitism, recombination, mutation, etc) (Sunghoon)
 
-4. Writing the discriminator (Camilo)
+4. Writing the discriminator and the fitness API (Camilo)
 
-  - And testing the discriminator with MNIST Dataset
-
-5. Using Python functions in a Clojure script (Sergei)
+5. Use of Python functions in a Clojure script (Sergei)
 
 6. Writing/sketching out the skeleton of our evolutionary algorithm with pretend APIs (Mahran)
 
@@ -44,32 +36,46 @@ git clone https://github.com/camilodoa/EC-Networks.git
 
 to copy the repo locally.
 
-## To Do
+If you want to push your changes to GitHub, you do:
 
-- Pick a name for our project (GEN? DEIG?)
+```bash
+git add .
+git commit -m "your message"
+git push
+```
 
-- Read up on Neural Networks
+For simple merging you want to do:
+```bash
+# In the merge message do:
+# ESC
+# :wq ENTER
+git push
+```
 
-- Find a core/cloud computing service (Ask Prof. Spector)
+## Installation
 
-- Pick a dataset (We're thinking of starting with MNIST)
+You'll need Git Large File Storage. [Install](https://git-lfs.github.com/) it.
 
-- Look into frameworks for ML in Clojure / Porting ML into Clojure
+Then, run
 
-- Research classical [GANS](https://github.com/NVlabs/stylegan)
+```bash
+git lfs install
+```
 
-- Look into using different discriminators
-
-  - Results can inform what the classifiers are doing
-
-- ~Set up GitHub accounts~
-
-- ~Join [Slack channel](https://join.slack.com/t/ec-networks/shared_invite/zt-d2zlhyvq-0nHuia~~UffdUTl8EGBUGg)~
+[This](https://medium.com/@AyunasCode/how-to-push-large-files-to-github-253d05cc6a09) is a good tutorial for how to commit really large files.
 
 ## Notes
 
-Notes people take on research/frameworks should be put in the `/text` directory.
+Notes people take on their progress should be put in the `/text` directory.
 
 ## Datasets
 
 If you find cool image datasets, please feel free to put them in the `/datasets` directory!
+
+## Communication
+
+We have a [Slack channel](https://join.slack.com/t/ec-networks/shared_invite/zt-d2zlhyvq-0nHuia~~UffdUTl8EGBUGg).
+
+## Future goals
+
+Use an SVM discriminator and compare the output with a neural net discriminator.
