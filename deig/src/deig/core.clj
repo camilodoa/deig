@@ -1,6 +1,14 @@
 (ns deig.core
   (:gen-class))
 
+(defn grayscale-pixel [] (rand-int 255))
+
+(defn create-grayscale-pixels [dimension] (vec (repeatedly (* dimension dimension) grayscale-pixel)))
+
+(def example-individual
+  "Creates an individual for testing. Sets the genome as a vector with 576 ints from 0-255."
+  {:fitness 10 :genome (create-grayscale-pixels 24) :generation 1})
+
 (defn new-individual
   []
   ;Uses random image generation function from either imagez or mikera
@@ -9,10 +17,27 @@
 	[g1 g2]
 	;Designed by Sun
 	)
-(defn mutate
-	[genome]
-	;dependens on what Ben, Caroline and Sun do.
-	)
+
+(defn mutate-pixel [pixel mutation-chance]
+  "Creates a mutated version of an individual's pixel"
+  (if (< (rand) mutation-chance)
+    (if (> (rand) 0.5)
+      (mod (+ (rand-int 15) pixel) 256)
+      (Math/abs (- pixel (rand-int 15))))
+    pixel))
+
+
+(defn mutate-pixels [genome mutation-chance]
+  (vec (map #(mutate-pixel % mutation-chance) genome)))
+
+(defn mutate [genome current-gen]
+  "If generation is below RMG (currently set to 20), rapidly mutate, otherwise slow it down"
+  (let [new-genome
+        (if (< current-gen 20)
+          (mutate-pixels genome 0.25)
+          (mutate-pixels genome 0.1))]
+    new-genome))
+
 (defn fitness
 	[i]
 	;Evaluate fitness using ML; Require using libpython-clj

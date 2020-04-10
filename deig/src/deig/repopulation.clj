@@ -21,17 +21,21 @@
   "Selects the two best individuals in any population based on fitness"
   (take-last 2 (sort-by :fitness population)))
 
+(defn select-best [population]
+  "Selects the best performing individual for elite, asexual reproduction"
+  (first (sort-by :fitness population)))
+
 
 ;(defn cross-over [genome1 genome2]
 ;  "We want to cross over the RGB genomes randomly"
 ;  )
 
 
-(defn new-individual [object-sizes capacity]
-  "Returns a new, random individual in the context of capacity and object-sizes."
-  (let [genome (vec (repeatedly (count object-sizes) #(rand-int 2)))]
-    {:genome  genome
-     :fitness (fitness genome capacity object-sizes)}))
+;(defn new-individual [object-sizes capacity]
+;  "Returns a new, random individual in the context of capacity and object-sizes."
+;  (let [genome (vec (repeatedly (count object-sizes) #(rand-int 2)))]
+;    {:genome  genome
+;     :fitness (fitness genome capacity object-sizes)}))
 
 (defn mutate-pixel [pixel mutation-chance]
   "Creates a mutated version of an individual's pixel"
@@ -53,6 +57,6 @@
           (mutate-pixels genome 0.1))]
     new-genome))
 
-#_(mutate-image (:genome example-individual) 1)
+#_(mutate-image (:genome example-individual) (:generation example-individual))
 
 (def test-color [0 0 0])
