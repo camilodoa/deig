@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Leiningen: net.mikera/imagez:0.9.0">
-    <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/net/mikera/imagez/0.9.0/imagez-0.9.0.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

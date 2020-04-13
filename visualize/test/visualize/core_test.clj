@@ -1,6 +1,6 @@
-(ns clisk-2.core-test
+(ns visualize.core-test
   (:require [clojure.test :refer :all]
-            [clisk-2.core :refer :all]))
+            [visualize.core :refer :all]))
 
 (deftest a-test
   (testing "FIXME, I fail."
