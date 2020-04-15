@@ -57,6 +57,14 @@
           (mutate-pixels genome 0.1))]
     new-genome))
 
+(defn store-image [image]
+  "Store the following image into a repository. This image will have the generation and vector genome stored."
+  )
+
+(defn )
+
+(defn )
+
 #_(mutate-image (:genome example-individual) (:generation example-individual))
 
 (def test-color [0 0 0])
