@@ -19,7 +19,7 @@ def fitness(img):
 
     model = load_model('model.h5', compile=False)
 
-    # This prediction is not used in fitness calculation
+    # This prediction variable is not used in fitness calculation
     prediction = model.predict_classes(x)
     print('Prediction is ', prediction)
 
@@ -33,6 +33,7 @@ def fitness(img):
 
 if __name__ == '__main__':
     'Sample usage'
+
     # Find a random image from dataset
     d = Discriminator()
     for _, dirnames, filenames in os.walk(d.dataset / 'test'):
