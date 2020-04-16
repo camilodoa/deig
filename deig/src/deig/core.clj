@@ -1,7 +1,7 @@
 (ns deig.core
   (:gen-class))
 
-(defn grayscale-pixel [] (rand-int 255))
+(defn grayscale-pixel [] [(rand-int 255)])
 
 (defn create-grayscale-pixels [dimension] (vec (repeatedly (* dimension dimension) grayscale-pixel)))
 
@@ -18,25 +18,33 @@
 	;Designed by Sun
 	)
 
+(defn absolute-val [val]
+  (if (< val 0)
+    (* val -1)
+    val))
+
 (defn mutate-pixel [pixel mutation-chance]
   "Creates a mutated version of an individual's pixel"
   (if (< (rand) mutation-chance)
     (if (> (rand) 0.5)
-      (mod (+ (rand-int 15) pixel) 256)
-      (Math/abs (- pixel (rand-int 15))))
+      (vec (map #(mod (+ (rand-int 15) %) 256) pixel))
+      (vec (map #(absolute-val (- % (rand-int 15))) pixel)))
     pixel))
 
 
 (defn mutate-pixels [genome mutation-chance]
   (vec (map #(mutate-pixel % mutation-chance) genome)))
 
-(defn mutate [genome current-gen]
+(defn mutate-image [genome current-gen]
   "If generation is below RMG (currently set to 20), rapidly mutate, otherwise slow it down"
   (let [new-genome
         (if (< current-gen 20)
           (mutate-pixels genome 0.25)
           (mutate-pixels genome 0.1))]
     new-genome))
+
+#_(mutate-image (:genome example-individual) (:generation example-individual))
+
 
 (defn fitness
 	[i]
