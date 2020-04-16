@@ -9,7 +9,6 @@ from pathlib import Path
 import tensorflow as tf
 
 from keras_preprocessing import image
-from keras_preprocessing import image
 from keras_preprocessing.image import ImageDataGenerator
 from tensorflow.keras.initializers import glorot_uniform
 from tensorflow.keras.models import Sequential
@@ -167,27 +166,7 @@ class Discriminator:
         plt.figure()
         plt.show()
 
-    def example(self):
-        with CustomObjectScope({'GlorotUniform': glorot_uniform()}):
-            model = load_model('./model.h5')
-
-            for _, dirnames, filenames in os.walk(self.dataset / 'test'):
-                example = random.choice(filenames)
-
-            img = image.load_img(self.dataset / 'test' / example,
-                                target_size=(28, 28), color_mode="grayscale")
-
-            x = image.img_to_array(img)
-            x = np.expand_dims(x, axis=0)
-            x = np.vstack([x])
-
-            classes = model.predict(x, batch_size=1)[0]
-
-            print(classes)
-            img.show()
-
 if __name__ == '__main__':
-    # Usage
+    'Sample usage'
     d = Discriminator()
-    # d.train()
-    d.example()
+    d.train()

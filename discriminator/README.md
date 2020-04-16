@@ -18,15 +18,21 @@ If you don't have `pip`, you can try to [install it manually](https://pip.pypa.i
 brew install python3
 ```
 
-which will install the python3 interpreter and the pip3 package manager. If you want the pip interpreter and the python2 interpreter, just replace `python3` with `python` and re-run the command.
+which will install the python3 interpreter and the pip3 package manager.
 
 ## Project structure
 
-A Discriminator class is written in `discriminator.py`. This discriminator is used for training the underlying mechanisms of our fitness function.
+A Discriminator class is written in `discriminator.py`. This discriminator is used for training the underlying mechanisms of our fitness function. The structure of our fitness function is defined in `fitness.py`. This is the function that will be translated to Clojure for use in our evolutionary algorithm.
 
 ## Usage
 
 To run a sample discriminator prediction, run:
+
+```bash
+python3 fitness.py
+```
+
+To train our model on the MNIST dataset, run:
 
 ```bash
 python3 discriminator.py
