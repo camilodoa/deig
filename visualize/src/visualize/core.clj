@@ -22,7 +22,7 @@
       (q/color-mode :hsb)
       ;; set pixel at random x,y with random color
 
-      (def rand_pixel = (rand-int 255))
+      (def rand_pixel (rand-int 255))
       (q/set-pixel im i j
                    (q/color 0 0 rand_pixel)))
     (q/set-image 0 0 im))
