@@ -1,24 +1,48 @@
+# Utility imports for the example
 from discriminator import Discriminator
+import os
+import random
 
-class Fitness():
-    def __init__(self, dataset='../datasets/mnist/'):
-        self.d = Discriminator(dataset)
-        self.d.train()
+# Imports our Clojure code will have to use
+import numpy as np
 
-    def evaluate(self, img):
-        '''
-        How the list of predictions gets transformed to a fitness number
-        '''
+from keras_preprocessing import image
+from tensorflow.keras.models import load_model
 
-        # Each prediction is a value from 0 to 1. 1 means that the image is
-        # more accurate, so we're taking the inverse, normalizing so that
-        # it starts at 0 (this is the -1 part) and multiplying by
-        # the error coefficient
 
-        predictions = self.d.predict()
+def fitness(img):
+    '''
+    Our fitness function to be copied to Clojure
+    '''
+    x = image.img_to_array(img)
+    x = np.expand_dims(x, axis=0)
 
-        error_coefficient = 5
+    model = load_model('model.h5', compile=False)
 
-        fitness = ((1 / max(predictions)) - 1) * error_coefficient
+    # This prediction variable is not used in fitness calculation
+    prediction = model.predict_classes(x)
+    print('Prediction is ', prediction)
 
-        return fitness
+    probabilities = model.predict_proba(x)[0]
+    print('Probabilities are', probabilities)
+
+    # Fitness is calculated 0-100, where 100 is perfect and 0 is very bad
+    fitness = max(probabilities) * 100
+    print('Fitness is', fitness)
+    return fitness
+
+
+if __name__ == '__main__':
+    'Sample usage'
+
+    # Find a random image from dataset
+    d = Discriminator()
+    for _, dirnames, filenames in os.walk(d.dataset / 'test'):
+        example = random.choice(filenames)
+
+        # Load file from HD
+        img = image.load_img(d.dataset / 'test' / example,
+                            target_size=(28, 28), color_mode="grayscale")
+
+        # Pass image to our fitness function
+        fitness(img)

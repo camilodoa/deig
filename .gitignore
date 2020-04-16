@@ -2,3 +2,4 @@
 datasets/africa_fabric
 *.jpg
 *.jpg
+__pycache__/
