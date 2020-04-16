@@ -26,9 +26,10 @@ def fitness(img):
     probabilities = model.predict_proba(x)[0]
     print('Probabilities are', probabilities)
 
-    error = ((1.0 / max(probabilities)) - 1) * 100
-    print('Error is', error)
-    return error
+    # Fitness is calculated 0-100, where 100 is perfect and 0 is very bad
+    fitness = max(probabilities)*100
+    print('Fitness is', fitness)
+    return fitness
 
 
 if __name__ == '__main__':
