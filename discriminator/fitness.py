@@ -27,7 +27,7 @@ def fitness(img):
     print('Probabilities are', probabilities)
 
     # Fitness is calculated 0-100, where 100 is perfect and 0 is very bad
-    fitness = max(probabilities)*100
+    fitness = max(probabilities) * 100
     print('Fitness is', fitness)
     return fitness
 
