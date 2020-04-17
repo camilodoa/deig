@@ -10,12 +10,12 @@
         {:bar 55 :fitness 34}
         {:foo 1 :fitness 77}])
 
-(defn greyscale-pixel [] (rand-int 255))
+(defn grayscale-pixel [] [(rand-int 255)])
 
-(defn create-greyscale-pixels [dimension] (vec (repeatedly (* dimension dimension) greyscale-pixel)))
+(defn create-grayscale-pixels [dimension] (vec (repeatedly (* dimension dimension) grayscale-pixel)))
 
 (def example-individual
-  {:fitness 10 :genome (create-greyscale-pixels 24) :generation 1})
+  {:fitness 10 :genome (create-grayscale-pixels 24) :generation 1})
 
 (defn select-parents [population]
   "Selects the two best individuals in any population based on fitness"
@@ -24,6 +24,9 @@
 (defn select-best [population]
   "Selects the best performing individual for elite, asexual reproduction"
   (first (sort-by :fitness population)))
+
+
+;HSV: Hue, Saturation, and Value (or Brightness)
 
 
 ;(defn cross-over [genome1 genome2]
@@ -37,12 +40,17 @@
 ;    {:genome  genome
 ;     :fitness (fitness genome capacity object-sizes)}))
 
+(defn absolute-val [val]
+  (if (< val 0)
+    (* val -1)
+    val))
+
 (defn mutate-pixel [pixel mutation-chance]
   "Creates a mutated version of an individual's pixel"
   (if (< (rand) mutation-chance)
     (if (> (rand) 0.5)
-      (mod (+ (rand-int 15) pixel) 256)
-      (Math/abs (- pixel (rand-int 15))))
+      (vec (map #(mod (+ (rand-int 15) %) 256) pixel))
+      (vec (map #(absolute-val (- % (rand-int 15))) pixel)))
     pixel))
 
 
@@ -57,6 +65,8 @@
           (mutate-pixels genome 0.1))]
     new-genome))
 
+#_(mutate-image (:genome example-individual) (:generation example-individual))
+
 (defn store-image [image]
   "Store the following image into a repository. This image will have the generation and vector genome stored."
   )
@@ -64,7 +74,5 @@
 (defn )
 
 (defn )
-
-#_(mutate-image (:genome example-individual) (:generation example-individual))
 
 (def test-color [0 0 0])
