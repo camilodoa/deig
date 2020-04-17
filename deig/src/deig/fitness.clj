@@ -14,7 +14,7 @@
           model (models/load_model "model.h5" false)
           probabilities (first (model.predict_proba x))
           fitness (* (apply max probabilities) 100)]
-         fitness))cd
+         fitness))
 
 
 
