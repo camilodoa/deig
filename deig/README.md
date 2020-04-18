@@ -4,19 +4,32 @@ Deep Evolutionary Image Generation.
 
 ## About
 
-Deep Evolutionary Image Generation (DEIG) applies an evolutionary approach to the question of Computer-Generated Images. Over time, a population of images are evolved using a pre-trained discriminator network as the population's fitness function.
+Deep Evolutionary Image Generation (DEIG) applies an evolutionary approach to the question of Computer-Generated Images. Over time, a population of images are evolved using a pre-trained classifier network as the population's fitness function.
 
-This directory is the root directory for the Evolutionary Algorithm. It imports the fitness function from `../discriminator/discriminator.py` and translates it into Clojure for use in EC.
 
 ## Getting Started
 
- If you have a Mac and you have [Homebrew](https://brew.sh/) installed, you can simply run:
+ If you have [Homebrew](https://brew.sh/) installed, you can simply run:
 
  ```bash
  brew install clojure
+ brew install leiningen
  ```
 
-to allow you to access the Clojure interpreter from the command line.
+To get the Clojure interpreter from the command line.
+
+To run our fitness function, you will also need python3/pip3. To download python3 and our dependencies, run:
+
+```bash
+brew install python3
+pip3 install -r requirements.txt
+```
+
+To install our Clojure dependencies, run:
+
+```bash
+lein deps
+```
 
 ## Usage
 
