@@ -9,34 +9,32 @@
   '[keras_preprocessing.image :as image-processing]
   '[tensorflow.keras.models :as models])
 
-(defn fitness [individual]
-      "Evaluate the image based on its best categorical score"
-    (let [px (:genome individual)
-          x-array (image-processing/img_to_array px)
+;; Load default Keras MNIST classifier
+(def model (models/load_model "mnist.h5"))
+
+(defn fitness [img]
+  "Evaluate an image based on its best categorical score"
+    (let [x-array (image-processing/img_to_array img)
           x (np/expand_dims x-array 0)
-          model (models/load_model "mnist.h5")
           probabilities (first (call-attr model "predict_proba"  x))
           fitness (* (apply max probabilities) 100)]
-        (print probabilities)
          fitness))
 
+;; Example code
 (defn grayscale-pixel
   []
   (let [number (rand-int 256)](vector number)))
 
-(defn create-grayscale-pixels [dimension]
+(defn grayscale-genome [dimension]
+  "Returns random grayscale genome of dimensions dimension*dimension"
   (vec (repeatedly dimension
-                   #(vec (repeatedly dimension grayscale-pixel)))))
-
-(def example-individual
-  "Creates an individual for testing. Sets the genome as a vector with 576 ints from 0-255."
-  {:fitness 10 :genome (create-grayscale-pixels 28) :generation 1})
+                   #(vec (repeatedly dimension (fn [] (vector (rand-int 256))))))))
 
 (defn trial
     "Run a practice fitness run"
     []
-  (fitness example-individual))
+  (fitness (grayscale-genome 28)))
 
-; Should return 0.
+;: Should return 0.
 #_ (trial)                                                  ;
 

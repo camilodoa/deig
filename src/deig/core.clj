@@ -1,75 +1,103 @@
 (ns deig.core
-  (:gen-class))
+  (:gen-class)
+  (:require [deig.fitness :refer [fitness]]
+           [libpython-clj.require :refer [require-python]]))
 
-(defn grayscale-pixel [] [(rand-int 255)])
+(require-python '[tensorflow.keras.models :as models])
 
-(defn create-grayscale-pixels [dimension] (vec (repeatedly (* dimension dimension) grayscale-pixel)))
-
-(def example-individual
-  "Creates an individual for testing. Sets the genome as a vector with 576 ints from 0-255."
-  {:fitness 10 :genome (create-grayscale-pixels 24) :generation 1})
-
-(defn new-individual
+;; Individual creation
+(defn grayscale-pixel
   []
-  ;Uses random image generation function from either imagez or mikera
-  )
-(defn cross-over
-	[g1 g2]
-	;Designed by Sun
-	)
+  (let [number (rand-int 256)] (vector number)))
 
-(defn absolute-val [val]
-  (if (< val 0)
-    (* val -1)
-    val))
+(defn grayscale-genome [dimension]
+  "Returns random grayscale genome of dimensions dimension*dimension"
+  (vec (repeatedly dimension
+                   #(vec (repeatedly dimension (fn [] (vector (rand-int 256))))))))
 
-(defn mutate-pixel [pixel mutation-chance]
+(defn new-individual [size & {:or {grayscale false}}]
+  "Creates a new individual with a genome of a random size*size image"
+  (let [genome (if grayscale-pixel (grayscale-genome size) [])]
+    {:genome  genome
+     :fitness (fitness genome)}))
+
+;; Selection
+(defn fittest [individuals]
+  "Returns the fittest of the given individuals."
+  (reduce (fn [i1 i2]
+            (if (> (:fitness i1) (:fitness i2))
+              i1
+              i2))
+          individuals))
+
+(defn select [population]
+  "Returns an individual selected from population using a tournament."
+  (fittest (repeatedly 2 #(rand-nth population))))
+
+;; Mutation
+(defn mutate-channel [pixel]
   "Creates a mutated version of an individual's pixel"
-  (if (< (rand) mutation-chance)
-    (if (> (rand) 0.5)
-      (vec (map #(mod (+ (rand-int 15) %) 256) pixel))
-      (vec (map #(absolute-val (- % (rand-int 15))) pixel)))
+  ;; Whether a mutation should occur
+  (if (< (rand) 0.2)
+    ;; If a mutation occurs, make it binary
+    (vec (map (fn [channel] (if (< (rand) 0.5) 255 0) pixel)))
     pixel))
 
+(defn mutate [genome]
+  "Randomly mutates an image by changing each pixel channel by a random amount"
+  (map (fn [column]
+         (map
+           (fn [row]
+             (map (fn [channel] (mutate-channel channel))
+                  row)))
+         column)
+       genome))
 
-(defn mutate-pixels [genome mutation-chance]
-  (vec (map #(mutate-pixel % mutation-chance) genome)))
+(defn crossover
+  [g1 g2]
+  (map (fn [column1 column2]
+         (map
+           (fn [row1 row2]
+             (map (fn [channel1 channel2] (if (rand-nth [true false]) channel1 channel2))
+                  row1
+                  row2)))
+         column1
+         column2)
+       g1
+       g2))
 
-(defn mutate-image [genome current-gen]
-  "If generation is below RMG (currently set to 20), rapidly mutate, otherwise slow it down"
-  (let [new-genome
-        (if (< current-gen 20)
-          (mutate-pixels genome 0.25)
-          (mutate-pixels genome 0.1))]
-    new-genome))
+(defn make-child [population]
+  "Returns a new, evaluated child, produced by mutating the result
+  of crossing over parents that are selected from the given population."
+  (let [new-genome (vec (mutate (crossover (:genome (select population))
+                                           (:genome (select population)))))]
+    {:genome  new-genome
+     :fitness (fitness new-genome)}))
 
-#_(mutate-image (:genome example-individual) (:generation example-individual))
+;; Output
+(defn report [generation population]
+  "Prints a report on the status of the population at the given generation."
+  (println {:generation generation :best (:fitness (fittest population))}))
 
-
-(defn fitness
-	[i]
-	;Evaluate fitness using ML; Require using libpython-clj
-	)
-(defn best
-	[i1 i2]
-	(if(> (fitness i1) (fitness i2))
-		i1
-		i2); Should be used in mutation
-	)
-(defn evolve
-  [popsize generations-number]
-  (loop [generation 0
-         population (sort fitness (repeatedly popsize new-individual))]
-    (let [fittest (first population)]
-      (println "Generation:" generation ", Best fitness:" (fitness fittest))
-         (if (= generation generations-number))
-         fittest
-          (recur
-            (inc generation)
-            (sort fitness (conj (map mutate
-                             population) fittest) )))))
+;; Main functions
+(defn evolve [population-size generations]
+  "Runs a genetic algorithm to generate an image according to the
+  criteria of a deep classifier model."
+  (loop [population (repeatedly population-size
+                                #(new-individual 28 :grayscale true))
+         generation 0]
+    (report generation population)
+    (if (>= generation generations)
+      (fittest population)
+      (recur (conj (repeatedly (dec population-size)
+                               #(make-child population))
+                   (fittest population))
+             (inc generation)))))
 
 (defn -main
   "Run the evolutionary algorithm"
   [& args]
-  (evolve "path-to-data"))
+  (evolve 500 30))
+
+;: Evolve.
+#_(-main)
