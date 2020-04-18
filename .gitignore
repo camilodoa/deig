@@ -3,3 +3,16 @@ datasets/africa_fabric
 *.jpg
 *.jpg
 __pycache__/
+/target
+/classes
+/checkouts
+profiles.clj
+pom.xml
+pom.xml.asc
+*.jar
+*.class
+/.lein-*
+/.nrepl-port
+.hgignore
+.hg/
+/.idea

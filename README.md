@@ -34,7 +34,7 @@ Then, navigate to the directory where you would like to place this project folde
 git clone https://github.com/camilodoa/EC-Networks.git
 ```
 
-to copy the repo locally.
+to clone the repo locally.
 
 If you want to push your changes to GitHub, you do:
 
@@ -54,6 +54,8 @@ git push
 
 ## Installation
 
+### git-lfs
+
 You'll need Git Large File Storage. [Install](https://git-lfs.github.com/) it.
 
 Then, run
@@ -64,18 +66,31 @@ git lfs install
 
 [This](https://medium.com/@AyunasCode/how-to-push-large-files-to-github-253d05cc6a09) is a good tutorial for how to commit really large files.
 
+### Clojure
+
+```bash
+brew install clojure
+brew install leiningen
+lein deps
+```
+
+### Python3
+
+```bash
+brew install python3
+pip3 install -r requirements.txt
+```
+
+## Running
+
+```bash
+lein run
+```
+
 ## Notes
 
-Notes people take on their progress should be put in the `/text` directory.
-
-## Datasets
-
-If you find cool image datasets, please feel free to put them in the `/datasets` directory!
+Notes people take are put in the `/text` directory.
 
 ## Communication
 
 We have a [Slack channel](https://join.slack.com/t/ec-networks/shared_invite/zt-d2zlhyvq-0nHuia~~UffdUTl8EGBUGg).
-
-## Future goals
-
-Use an SVM discriminator and compare the output with a neural net discriminator.
