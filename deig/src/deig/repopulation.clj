@@ -1,29 +1,35 @@
 (ns deig.repopulation
   (:gen-class))
 
-(def x [3])
+;Set image dimensions here
+(def dimension 28)
 
-(fitness 3)
+;Set pixel change maximum here
+(def pixel-change-max 30)
 
-(def x [{:fitness 2 :bar 11}
-        {:bar 99 :fitness 1}
-        {:bar 55 :fitness 34}
-        {:foo 1 :fitness 77}])
+;Set the generation when we stop rapidly mutating
+(def rapid-mutation-gen 20)
 
-(defn grayscale-pixel [] [(rand-int 255)])
+(defn grayscale-pixel
+  []
+  (let [number (rand-int 256)](vector number)))
 
-(defn create-grayscale-pixels [dimension] (vec (repeatedly (* dimension dimension) grayscale-pixel)))
+(defn create-grayscale-pixels [dimension]
+  (vec (repeatedly dimension
+                   #(vec (repeatedly dimension grayscale-pixel)))))
+
 
 (def example-individual
-  {:fitness 10 :genome (create-grayscale-pixels 24) :generation 1})
+  {:fitness 10 :genome (create-grayscale-pixels dimension) :generation 1})
 
-(defn select-parents [population]
-  "Selects the two best individuals in any population based on fitness"
-  (take-last 2 (sort-by :fitness population)))
 
-(defn select-best [population]
-  "Selects the best performing individual for elite, asexual reproduction"
-  (first (sort-by :fitness population)))
+;(defn select-parents [population]
+;  "Selects the two best individuals in any population based on fitness"
+;  (take-last 2 (sort-by :fitness population)))
+
+;(defn select-best [population]
+;  "Selects the best performing individual for elite, asexual reproduction"
+;  (first (sort-by :fitness population)))
 
 
 ;HSV: Hue, Saturation, and Value (or Brightness)
@@ -45,34 +51,43 @@
     (* val -1)
     val))
 
+(defn partitionv [n x]
+  "Partitions into vecs within vecs"
+  (mapv #(vec %) (partition n x)))
+
+;(defn mutate-flattened-pixel [pixel mutation-chance]
+;    "Creates a mutated version of an individual's pixel -- only when completely flattened"
+;    (if (< (rand) mutation-chance)
+;      (if (> (rand) 0.5)
+;        (mod (+ (rand-int 15) pixel) 255)
+;        (absolute-val (- pixel (rand-int 15))))
+;      pixel))
+
 (defn mutate-pixel [pixel mutation-chance]
   "Creates a mutated version of an individual's pixel"
   (if (< (rand) mutation-chance)
     (if (> (rand) 0.5)
-      (vec (map #(mod (+ (rand-int 15) %) 256) pixel))
-      (vec (map #(absolute-val (- % (rand-int 15))) pixel)))
+      (mapv #(mod (+ (rand-int pixel-change-max) %) 255) pixel)
+      (mapv #(absolute-val (- % (rand-int pixel-change-max))) pixel))
     pixel))
 
 
 (defn mutate-pixels [genome mutation-chance]
-  (vec (map #(mutate-pixel % mutation-chance) genome)))
+  "This let function converts a 28x28x1 vector into a 576x1x1 for easy mutation"
+  (let [stripped-genome (reduce into [] genome)]
+    (mapv #(mutate-pixel % mutation-chance) stripped-genome)))
 
 (defn mutate-image [genome current-gen]
   "If generation is below RMG (currently set to 20), rapidly mutate, otherwise slow it down"
   (let [new-genome
-        (if (< current-gen 20)
+        (if (< current-gen rapid-mutation-gen)
           (mutate-pixels genome 0.25)
           (mutate-pixels genome 0.1))]
-    new-genome))
+    (partitionv dimension new-genome)))
+
 
 #_(mutate-image (:genome example-individual) (:generation example-individual))
 
 (defn store-image [image]
   "Store the following image into a repository. This image will have the generation and vector genome stored."
   )
-
-(defn )
-
-(defn )
-
-(def test-color [0 0 0])

@@ -23,25 +23,40 @@
     (* val -1)
     val))
 
+(defn partitionv [n x]
+  "Partitions into vecs within vecs"
+  (mapv #(vec %) (partition n x)))
+
+;Set image dimensions here
+(def dimension 28)
+
+;Set pixel change maximum in each possible mutation here
+(def pixel-change-max 30)
+
+;Set the generation where we stop rapidly mutating
+(def rapid-mutation-gen 20)
+
 (defn mutate-pixel [pixel mutation-chance]
   "Creates a mutated version of an individual's pixel"
   (if (< (rand) mutation-chance)
     (if (> (rand) 0.5)
-      (vec (map #(mod (+ (rand-int 15) %) 256) pixel))
-      (vec (map #(absolute-val (- % (rand-int 15))) pixel)))
+      (mapv #(mod (+ (rand-int pixel-change-max) %) 255) pixel)
+      (mapv #(absolute-val (- % (rand-int pixel-change-max))) pixel))
     pixel))
 
 
 (defn mutate-pixels [genome mutation-chance]
-  (vec (map #(mutate-pixel % mutation-chance) genome)))
+  "This let function converts a 28x28x1 vector into a 576x1x1 for easy mutation"
+  (let [stripped-genome (reduce into [] genome)]
+    (mapv #(mutate-pixel % mutation-chance) stripped-genome)))
 
-(defn mutate-image [genome current-gen]
+(defn mutate [genome current-gen]
   "If generation is below RMG (currently set to 20), rapidly mutate, otherwise slow it down"
   (let [new-genome
-        (if (< current-gen 20)
+        (if (< current-gen rapid-mutation-gen)
           (mutate-pixels genome 0.25)
           (mutate-pixels genome 0.1))]
-    new-genome))
+    (partitionv dimension new-genome)))
 
 #_(mutate-image (:genome example-individual) (:generation example-individual))
 
