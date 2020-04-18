@@ -1,13 +1,8 @@
 (ns deig.core
-  (:gen-class)
-  (:require [deig.fitness :refer [fitness]]
-           [libpython-clj.require :refer [require-python]]))
-
-(require-python '[tensorflow.keras.models :as models])
+  (:require [deig.fitness :refer [fitness]]))
 
 ;; Individual creation
-(defn grayscale-pixel
-  []
+(defn grayscale-pixel []
   (let [number (rand-int 256)] (vector number)))
 
 (defn grayscale-genome [dimension]
@@ -96,8 +91,9 @@
 
 (defn -main
   "Run the evolutionary algorithm"
-  [& args]
-  (evolve 500 30))
+  []
+  (println "Starting evolution.")
+  (evolve 1000 30))
 
 ;: Evolve.
 #_(-main)
