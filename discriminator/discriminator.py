@@ -130,8 +130,8 @@ class Discriminator:
             # 512 neuron hidden layer
             Dense(512, activation='relu'),
 
-            # Output is same size as categories
-            Dense(self.categories, activation='softmax')
+            # Output is same size as categories. Using sigmoid for probability output.
+            Dense(self.categories, activation='sigmoid')
         ])
 
         self.model.summary()

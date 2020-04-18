@@ -14,7 +14,7 @@
     (let [px (:genome individual)
           x-array (image-processing/img_to_array px)
           x (np/expand_dims x-array 0)
-          model (models/load_model "model.h5")
+          model (models/load_model "mnist.h5")
           probabilities (first (call-attr model "predict_proba"  x))
           fitness (* (apply max probabilities) 100)]
         (print probabilities)

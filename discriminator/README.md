@@ -24,6 +24,8 @@ which will install the python3 interpreter and the pip3 package manager.
 
 A Discriminator class is written in `discriminator.py`. This discriminator is used for training the underlying mechanisms of our fitness function. The structure of our fitness function is defined in `fitness.py`. This is the function that will be translated to Clojure for use in our evolutionary algorithm.
 
+I also included a quick script for training a classifier on the MNIST dataset. This is found in `mnist.py`
+
 ## Usage
 
 To run a sample discriminator prediction, run:
@@ -32,11 +34,23 @@ To run a sample discriminator prediction, run:
 python3 fitness.py
 ```
 
-To train our model on the MNIST dataset, run:
+To train our customizable model on the MNIST dataset, run:
 
 ```bash
 python3 discriminator.py
 ```
+
+Your model will be saved to `model.h5` Please note that the customizable model takes a long time to train.
+
+If you want to quickly train a MNIST classifier model, run:
+
+```bash
+python3 mnist.py
+```
+
+Your model will be saved to `mnist.h5`.
+
+## Datasets
 
 All datasets should have the same format:
 

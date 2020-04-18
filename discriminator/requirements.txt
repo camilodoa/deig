@@ -5,3 +5,4 @@ keras_preprocessing
 matplotlib
 h5py
 pillow
+keras
