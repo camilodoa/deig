@@ -37,6 +37,6 @@
     []
   (fitness example-individual))
 
-; Should return 100.
+; Should return 0.
 #_ (trial)                                                  ;
 
