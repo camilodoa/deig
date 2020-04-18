@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: org.roaringbitmap/shims:0.8.13">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/roaringbitmap/shims/0.8.13/shims-0.8.13.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

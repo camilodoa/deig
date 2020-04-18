@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: techascent/tech.parallel:2.8">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/techascent/tech.parallel/2.8/tech.parallel-2.8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
