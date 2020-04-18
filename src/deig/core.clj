@@ -74,7 +74,7 @@
 ;; Output
 (defn report [generation population]
   "Prints a report on the status of the population at the given generation."
-  (println {:generation generation :best (:fitness (fittest population))}))
+  (println {:generation generation :best-fitness (:fitness (fittest population))}))
 
 ;; Main functions
 (defn evolve [population-size generations]
