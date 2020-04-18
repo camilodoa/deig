@@ -2,17 +2,19 @@
   (:require [deig.fitness :refer [fitness]]))
 
 ;; Individual creation
-(defn grayscale-pixel []
-  (let [number (rand-int 256)] (vector number)))
-
 (defn grayscale-genome [dimension]
   "Returns random grayscale genome of dimensions dimension*dimension"
   (vec (repeatedly dimension
                    #(vec (repeatedly dimension (fn [] (vector (rand-int 256))))))))
 
-(defn new-individual [size & {:or {grayscale false}}]
+(defn rbg-genome [dimension]
+  "Returns random grayscale genome of dimensions dimension*dimension"
+  (vec (repeatedly dimension
+                   #(vec (repeatedly dimension (fn [] (vec (repeatedly 3 (rand-int 256)))))))))
+
+(defn new-individual [size & {:keys [grayscale] :or {grayscale false}}]
   "Creates a new individual with a genome of a random size*size image"
-  (let [genome (if grayscale-pixel (grayscale-genome size) [])]
+  (let [genome (if (true? grayscale) (grayscale-genome size) (rbg-genome size))]
     {:genome  genome
      :fitness (fitness genome)}))
 
@@ -53,7 +55,7 @@
   (map (fn [column1 column2]
          (map
            (fn [row1 row2]
-             (map (fn [channel1 channel2] (if (rand-nth [true false]) channel1 channel2))
+             (map (fn [channel1 channel2] (if (rand-nth '[true false]) channel1 channel2))
                   row1
                   row2)))
          column1
