@@ -1,9 +1,10 @@
 (ns visualize.core
-  (:require [quil.core :as q]))
+  (:require [quil.core :as q :include-macros true]          ;; add this
+            [quil.middleware :as middleware]))
 
-(def viz-width 28) ;; width of the visualization window in pixels
-(def viz-height 28) ;; height of the visualization window in pixels
-(def num_pixels 200) ;; pixels from centers of edge points to window edge
+(def viz-width 28)                                          ;; width of the visualization window in pixels
+(def viz-height 28)                                         ;; height of the visualization window in pixels
+(def num_pixels 200)
 
 (defn grayscale-pixel [] (rand-int 255))
 
@@ -11,72 +12,36 @@
   (vec (repeatedly dimension
                    #(vec (repeatedly dimension grayscale-pixel)))))
 
-;(print (get (get (create-grayscale-pixels viz-width) 1) 1))
+;(def n (create-grayscale-pixels viz-width))
+;(print n)
+;(print (get (get n 1) 1))
 
-;(print (get (get [[242 39 1 139 54 251 52 62 93 169 29 188 204 124 102 1 72 41 95 207 217 155 201 28 87 80 52 139] [100 12 110 53 159 170 20 27 186 47 252 138 151 1 93 180 182 142 102 83 7 8 130 61 160 15 171 226] [3 130 231 208 79 138 181 19 49 18 4 66 122 191 112 179 235 75 145 237 85 191 156 241 239 220 241 139] [218 76 23 253 176 207 17 202 119 210 122 106 143 49 87 221 234 230 97 253 115 181 146 83 142 126 172 248] [147 31 210 216 97 70 151 11 114 112 162 193 129 201 118 117 75 64 39 115 244 84 106 19 127 184 254 9] [230 193 114 73 195 15 245 226 199 153 149 30 15 118 221 222 224 59 21 237 152 242 42 120 86 237 223 118] [102 128 25 12 179 22 188 76 36 105 137 247 93 240 221 215 105 209 203 102 162 136 205 109 132 208 253 223] [63 201 1 58 130 146 219 8 128 237 88 247 7 98 253 35 104 162 122 179 39 151 240 52 127 153 205 19] [104 199 175 226 44 115 102 234 124 182 87 118 193 48 71 15 121 219 46 144 162 141 194 161 148 139 78 118] [35 9 209 104 157 11 133 15 4 105 182 206 205 29 73 248 192 10 74 165 161 220 206 64 249 62 168 212] [201 229 149 166 189 150 73 127 119 34 8 144 120 218 152 76 134 197 245 243 199 248 154 229 76 69 15 236] [137 71 79 217 16 87 164 202 208 212 187 89 118 69 76 186 159 166 220 166 83 40 66 104 145 30 242 19] [199 204 138 56 217 228 216 228 136 87 59 233 59 24 101 138 185 244 123 216 210 158 249 236 193 27 11 20] [243 206 201 202 244 48 107 22 93 218 119 107 14 166 249 203 133 166 24 28 185 206 156 51 203 1 181 46] [195 249 191 199 206 95 214 136 160 177 214 120 44 148 192 244 93 21 150 241 112 40 98 173 60 163 157 96] [2 60 24 235 123 13 60 4 56 52 211 107 21 203 150 59 3 131 62 42 123 141 88 210 197 83 231 221] [134 210 157 202 72 236 159 207 55 51 223 213 236 19 123 55 241 38 2 76 129 189 62 48 85 89 207 88] [93 222 12 229 213 223 118 128 167 27 174 155 189 195 232 239 247 174 206 151 63 211 39 28 164 223 226 52] [170 171 206 150 113 175 203 134 20 71 132 59 127 189 63 94 210 185 15 7 163 122 143 165 195 195 50 65] [132 39 121 68 51 97 163 200 41 72 225 32 202 153 174 174 226 116 209 232 247 28 87 110 167 179 12 167] [154 124 26 108 83 215 6 93 253 17 149 142 102 120 42 32 92 206 180 16 50 140 161 124 118 160 50 239] [147 184 19 23 10 15 133 141 154 214 21 196 30 77 148 101 210 77 62 156 116 226 177 229 253 59 21 195] [161 149 210 231 125 145 66 226 147 83 249 66 182 138 207 150 138 43 60 97 43 61 90 62 194 166 235 13] [30 33 107 1 93 12 201 165 238 190 125 242 78 92 63 124 148 250 77 153 70 13 8 46 209 155 125 93] [234 217 217 12 19 4 180 134 229 57 220 254 18 80 181 233 122 47 11 117 174 48 31 86 194 166 205 70] [149 68 200 103 189 134 107 150 162 214 250 101 205 33 32 47 32 45 231 43 86 187 236 209 77 210 39 98] [137 70 119 109 195 141 38 134 172 144 150 93 180 237 188 97 76 125 80 244 14 164 95 27 51 17 112 16] [254 8 168 254 31 91 249 112 115 117 35 124 127 146 27 24 111 136 147 38 186 229 107 231 119 64 53 165]]
-;                 28) 28))
+(defn visualize_pixels []
+  ;; set background color to white 255
+  (let [n (create-grayscale-pixels viz-width)
+        gr (q/background 255)
+        im (q/create-image (* 2 viz-width) (* 2 viz-height) :rgb)]
 
-<<<<<<< HEAD
-=======
     ;; randomly set this many pixels
-    (doseq [i (range num_pixels)
-            j (range num_pixels)]
+    (doseq [i (range viz-width)
+            j (range viz-width)]
 
       (q/color-mode :hsb)
-      ;; set pixel at random x,y with random color
 
-      (def rand_pixel = (rand-int 255))
-      (q/set-pixel im i j
-                   (q/color 0 0 rand_pixel)))
+      (let [b (get (get n i) j)]
+        (q/set-pixel im i j
+                     (q/color 0 0 b))))
     (q/set-image 0 0 im))
   (q/no-loop))
->>>>>>> parent of b75757fc1... Update core.clj
-
-
-
 
 (defn start-visualization []
   "Create the Quil sketch."
-
   (q/sketch
     :size [viz-width viz-height]
-    :draw (fn []
-            (let [
-                  gr (q/background 255)
-                  im (q/create-image (* viz-width 2) (* viz-height 2) :rgb)]
-
-              ;; randomly set this many pixels
-              (doseq [i (range num_pixels)
-                      j (range num_pixels)]
-
-                (q/color-mode :hsb)
-                ;; set pixel at random x,y with random color
+    :draw visualize_pixels))
 
 
-                (q/set-pixel im i j
-                             (q/color 0 0 (rand-int 255))))
-              (q/set-image 0 0 im))
-            (q/no-loop))))
+(start-visualization)
+;;;
 
 
-;(q/sketch
-;  :title "example"
-;  :size [600 600]
-;  :draw (fn []
-;          ;; set background color to white 255
-;          (let [gr (q/background 255)
-;                im (q/create-image 1200 1200 :rgb)]
-;
-;            ;; randomly set this many pixels
-;            (doseq [i (range (rand-int 1000))
-;                    j (range (rand-int 1000))]
-;
-;              ;; set pixel at random x,y with random color
-;              (q/set-pixel im (rand-int 1200) (rand-int 1200)
-;                           (q/color (rand-int 256) (rand-int 256) (rand-int 256) (rand-int 256))))
-;            (q/set-image 0 0 im))
-;          (q/no-loop)))
-
-
-;; Start visualization when this file is loaded.
-({start-visualization})
