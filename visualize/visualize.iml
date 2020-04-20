@@ -13,10 +13,23 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Leiningen: bouncycastle/bcmail-jdk14:138" level="project" />
+    <orderEntry type="library" name="Leiningen: bouncycastle/bcprov-jdk14:138" level="project" />
     <orderEntry type="library" name="Leiningen: clojure-complete:0.2.5" level="project" />
+    <orderEntry type="library" name="Leiningen: com.lowagie/itext:2.1.7" level="project" />
     <orderEntry type="library" name="Leiningen: nrepl:0.6.0" level="project" />
+    <orderEntry type="library" name="Leiningen: org.bouncycastle/bcmail-jdk14:1.38" level="project" />
+    <orderEntry type="library" name="Leiningen: org.bouncycastle/bcprov-jdk14:1.38" level="project" />
+    <orderEntry type="library" name="Leiningen: org.bouncycastle/bctsp-jdk14:1.38" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure/clojure:1.10.0" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure/core.specs.alpha:0.2.44" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure/spec.alpha:0.2.176" level="project" />
+    <orderEntry type="library" name="Leiningen: quil/gluegen-rt-fat:2.3.2" level="project" />
+    <orderEntry type="library" name="Leiningen: quil/jogl-all-fat:2.3.2" level="project" />
+    <orderEntry type="library" name="Leiningen: quil/processing-core:3.0.2" level="project" />
+    <orderEntry type="library" name="Leiningen: quil/processing-dxf:3.0.2.1" level="project" />
+    <orderEntry type="library" name="Leiningen: quil/processing-js:1.4.16.0" level="project" />
+    <orderEntry type="library" name="Leiningen: quil/processing-pdf:3.0.2" level="project" />
+    <orderEntry type="library" name="Leiningen: quil:2.4.0" level="project" />
   </component>
 </module>
