@@ -1,39 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8984b881-4ce4-4e81-94c2-09a10decbad1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__bouncycastle_bcmail_jdk14_138.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__bouncycastle_bcprov_jdk14_138.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__com_lowagie_itext_2_1_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__org_bouncycastle_bcmail_jdk14_1_38.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__org_bouncycastle_bcprov_jdk14_1_38.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__org_bouncycastle_bctsp_jdk14_1_38.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__quil_2_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__quil_gluegen_rt_fat_2_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__quil_jogl_all_fat_2_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__quil_processing_core_3_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__quil_processing_dxf_3_0_2_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__quil_processing_js_1_4_16_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__quil_processing_pdf_3_0_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/visualize/core.clj" beforeDir="false" afterPath="$PROJECT_DIR$/src/visualize/core.clj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualize.iml" beforeDir="false" afterPath="$PROJECT_DIR$/visualize.iml" afterDir="false" />
-    </list>
+    <list default="true" id="8984b881-4ce4-4e81-94c2-09a10decbad1" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/visualize/core.clj">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project.clj">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="18" lean-forward="true" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-15" />
+    <option name="width" value="1948" />
+    <option name="height" value="2075" />
+  </component>
   <component name="ProjectId" id="1aoRdLMvTNw22lQJA0itV8WRuQr" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="visualize" type="b2602c69:ProjectViewProjectNode" />
+              <item name="visualize" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="visualize" type="b2602c69:ProjectViewProjectNode" />
+              <item name="visualize" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="visualize" type="b2602c69:ProjectViewProjectNode" />
+              <item name="visualize" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="visualize" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
-  <component name="ReplState" timestamp="1587401639089">{:repl-history {:ide [], :local [], :remote []}}</component>
+  <component name="ReplState" timestamp="1587431414088">{:repl-history {:ide [], :local [{:command &quot;(start-visualization)&quot;, :offset 21, :ns &quot;visualize.core&quot;} {:command &quot;(defn start-visualization []\n        \&quot;Create the Quil sketch.\&quot;\n        (q/sketch\n          :size [viz-width_div_2 viz-height_div_2]\n          :draw visualize_pixels))&quot;, :offset 166, :ns &quot;visualize.core&quot;} {:command &quot;(ns visualize.core\n\n      (:require [quil.core :as q :include-macros true]          ;; add this\n                [quil.middleware :as middleware]))&quot;, :offset 146, :ns &quot;visualize.core&quot;} {:command &quot;(ns visualize.core\n\n      (:require [quil.core :as q :include-macros true]          ;; add this\n                [quil.middleware :as middleware]))\n\n  (def viz-width 28)                                          ;; width of the visualization window in pixels\n  (def viz-height 28)                                         ;; height of the visualization window in pixels\n\n  (def viz-width_div_2 14)                                          ;; width of the visualization window in pixels\n  (def viz-height_div_2 14)\n\n  (defn grayscale-pixel [] (rand-int 255))\n\n  (defn create-grayscale-pixels [dimension]\n        (vec (repeatedly dimension\n                         #(vec (repeatedly dimension grayscale-pixel)))))\n\n  (defn visualize_pixels []\n    ;; set background color to white 255\n        (let [n (create-grayscale-pixels viz-width)\n              gr (q/background 255)\n              im (q/create-image viz-width viz-height :rgb)]\n\n          ;; randomly set this many pixels\n          (doseq [i (range viz-width)\n                  j (range viz-height)]\n\n            (q/color-mode :hsb)\n\n            (let [b (get (get n i) j)]\n              (q/set-pixel im i j\n                           (q/color 0 0 b))))\n          (q/set-image 0 0 im))\n        (q/no-loop))\n\n  (defn start-visualization []\n        \&quot;Create the Quil sketch.\&quot;\n        (q/sketch\n          :size [viz-width_div_2 viz-height_div_2]\n          :draw visualize_pixels))\n\n\n  (start-visualization)\n  ;;;\n\n&quot;, :offset 1459, :ns &quot;visualize.core&quot;} {:command &quot;(defproject visualize \&quot;0.1.0-SNAPSHOT\&quot;\n  :description \&quot;FIXME: write description\&quot;\n  :url \&quot;http://example.com/FIXME\&quot;\n  :license {:name \&quot;EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0\&quot;\n            :url \&quot;https://www.eclipse.org/legal/epl-2.0/\&quot;}\n  :dependencies [[org.clojure/clojure \&quot;1.10.0\&quot;]\n                 [quil \&quot;2.4.0\&quot;]]\n  :repl-options {:init-ns visualize.core})&quot;, :offset 374, :ns &quot;visualize.core&quot;}], :remote []}}</component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -62,7 +103,6 @@
     <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
       <setting name="replType" value="NREPL" />
       <setting name="execution" value="LEININGEN" />
-      <module name="" />
       <setting name="jvmArgs" value="" />
       <setting name="parameters" value="" />
       <setting name="workingDir" value="" />
@@ -77,7 +117,6 @@
       <setting name="replType" value="SOCKET" />
       <setting name="configType" value="SPECIFY" />
       <setting name="fixLineNumbers" value="false" />
-      <module name="" />
       <method v="2" />
     </configuration>
     <recent_temporary>
@@ -99,17 +138,86 @@
     </task>
     <servers />
   </component>
+  <component name="ToolWindowManager">
+    <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24949698" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" weight="0.32956153" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="REPL" side_tool="true" weight="0.32997987" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Leiningen" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
             <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
               <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/project.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="18" lean-forward="true" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/visualize/core.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
