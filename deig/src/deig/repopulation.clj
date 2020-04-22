@@ -86,11 +86,12 @@
     (partitionv dimension new-genome)))
 
 (defn mutate-horizontal-line [genome]
+  "Mutates a (uniformly colored) horizontal line into the genome. Needs fixing"
   (let [stripped-genome (reduce into[] genome)
-        line-start (rand-int 779)
+        line-start (rand-int 1)
         pixel-values (rand-int 255)]
-    pixel-
-    ))
+    (partitionv 28 (assoc stripped-genome line-start pixel-values))))
+
 
 #_(mutate-image (:genome example-individual) (:generation example-individual))
 
