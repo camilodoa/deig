@@ -73,7 +73,7 @@
 
 
 (defn mutate-pixels [genome mutation-chance]
-  "This let function converts a 28x28x1 vector into a 576x1x1 for easy mutation"
+  "This let function converts a 28x28x1 vector into a 784x1x1 for easy mutation"
   (let [stripped-genome (reduce into [] genome)]
     (mapv #(mutate-pixel % mutation-chance) stripped-genome)))
 
@@ -85,8 +85,16 @@
           (mutate-pixels genome 0.1))]
     (partitionv dimension new-genome)))
 
+(defn mutate-horizontal-line [genome]
+  (let [stripped-genome (reduce into[] genome)
+        line-start (rand-int 779)
+        pixel-values (rand-int 255)]
+    pixel-
+    ))
 
 #_(mutate-image (:genome example-individual) (:generation example-individual))
+
+
 
 (defn store-image [image]
   "Store the following image into a repository. This image will have the generation and vector genome stored."

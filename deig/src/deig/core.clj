@@ -46,7 +46,7 @@
 
 
 (defn mutate-pixels [genome mutation-chance]
-  "This let function converts a 28x28x1 vector into a 576x1x1 for easy mutation"
+  "This let function converts a 28x28x1 vector into a 784x1x1 for easy mutation"
   (let [stripped-genome (reduce into [] genome)]
     (mapv #(mutate-pixel % mutation-chance) stripped-genome)))
 

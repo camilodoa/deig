@@ -49,7 +49,6 @@
     <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
       <setting name="replType" value="NREPL" />
       <setting name="execution" value="LEININGEN" />
-      <module name="" />
       <setting name="jvmArgs" value="" />
       <setting name="parameters" value="" />
       <setting name="workingDir" value="" />
@@ -64,7 +63,6 @@
       <setting name="replType" value="SOCKET" />
       <setting name="configType" value="SPECIFY" />
       <setting name="fixLineNumbers" value="false" />
-      <module name="" />
       <method v="2" />
     </configuration>
     <recent_temporary>
