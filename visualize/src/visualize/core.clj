@@ -64,7 +64,7 @@
           half (/ (* size size) 2)]
       (dotimes [i half] (aset-int px (+ i half) (aget px i))))
     (q/update-pixels gr)
-    (pprint (q/pixels gr))
+    ;(pprint (q/pixels gr))
     ;(println (q/get-pixel 24 20))
     (q/no-loop)))
 
