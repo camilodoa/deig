@@ -1,6 +1,7 @@
 (ns visualize.core
   (:require [quil.core :as q :include-macros true]          ;; add this
-            [quil.middleware :as middleware]))
+            [quil.middleware :as middleware]
+            [clojure.pprint :as pp]))
 
 (def viz-width 28)                                          ;; width of the visualization window in pixels
 (def viz-height 28)                                         ;; height of the visualization window in pixels
@@ -64,9 +65,10 @@
           half (/ (* size size) 2)]
       (dotimes [i half] (aset-int px (+ i half) (aget px i))))
     (q/update-pixels gr)
-    ;(pprint (q/pixels gr))
+    (pp/pprint (q/pixels gr) (clojure.java.io/writer "quilvec.txt"))
     ;(println (q/get-pixel 24 20))
-    (q/no-loop)))
+    (q/no-loop)
+    ))
 
 
 (defn start-visualization []

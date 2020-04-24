@@ -2,37 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8984b881-4ce4-4e81-94c2-09a10decbad1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../deig/quilvec.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/foo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/quilvec.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../deig/src/deig/repopulation.clj" beforeDir="false" afterPath="$PROJECT_DIR$/../deig/src/deig/repopulation.clj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/visualize/core.clj" beforeDir="false" afterPath="$PROJECT_DIR$/src/visualize/core.clj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visualize.iml" beforeDir="false" afterPath="$PROJECT_DIR$/visualize.iml" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/visualize/core.clj">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="79" column="21" lean-forward="true" selection-start-line="79" selection-start-column="21" selection-end-line="79" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/visualize/core.clj" />
-      </list>
-    </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-15" />
@@ -41,54 +25,11 @@
   </component>
   <component name="ProjectId" id="1aoRdLMvTNw22lQJA0itV8WRuQr" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="visualize" type="b2602c69:ProjectViewProjectNode" />
-              <item name="visualize" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="visualize" type="b2602c69:ProjectViewProjectNode" />
-              <item name="visualize" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="visualize" type="b2602c69:ProjectViewProjectNode" />
-              <item name="visualize" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="visualize" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
-  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1587676095808" />
   </component>
-  <component name="ReplState" timestamp="1587676095806">{:repl-history {:ide [], :local [{:command &quot;(ns visualize.core\n\n      (:require [quil.core :as q :include-macros true]          ;; add this\n                [quil.middleware :as middleware]))&quot;, :offset 146, :ns &quot;visualize.core&quot;} {:command &quot;(ns visualize.core\n\n  (:require [quil.core :as q :include-macros true]          ;; add this\n            [quil.middleware :as middleware]))\n\n(def viz-width 28)                                          ;; width of the visualization window in pixels\n(def viz-height 28)                                         ;; height of the visualization window in pixels\n\n(def viz-width_div_2 14)                                          ;; width of the visualization window in pixels\n(def viz-height_div_2 14)\n\n(defn grayscale-pixel [] (rand-int 255))\n\n(defn create-grayscale-pixels [dimension]\n  (vec (repeatedly dimension\n                   #(vec (repeatedly dimension grayscale-pixel)))))\n\n(defn visualize_pixels []\n  ;; set background color to white 255\n  (let [n (create-grayscale-pixels viz-width)\n        gr (q/background 255)\n        im (q/create-image viz-width viz-height :rgb)]\n\n    ;; randomly set this many pixels\n    (doseq [i (range viz-width)\n            j (range viz-height)]\n\n      (q/color-mode :hsb)\n\n      (let [b (get (get n i) j)]\n        (q/set-pixel im i j\n                     (q/color 0 0 b))))\n    (q/set-image 0 0 im))\n  (q/no-loop))\n\n;(defn start-visualization []\n;      \&quot;Create the Quil sketch.\&quot;\n;      (q/sketch\n;        :size [viz-width_div_2 viz-height_div_2]\n;        :draw visualize_pixels))\n;\n;\n;(start-visualization)\n\n(defn draw []\n  (q/background 255)\n  (let [size 28\n        gr (q/create-graphics 28 28)\n        im (q/create-image viz-width viz-height :rgb)]\n    (q/with-graphics gr\n                     ;; make it hsb\n                     (q/color-mode :hsb)\n                     (q/fill 0 0 (rand-int 255))\n\n                     ;; no outside line\n                     (q/stroke nil)\n\n                     ; draw arc\n                     ;; x, y, width, height, start, stop, mode (open, chord, pie)\n                     ;(q/arc 28 28 20 17 0 q/QUARTER-PI)\n                     ; draw different arc modes\n\n                     (doseq [[ind mode] [[0 :open] [1 :chord] [2 :pie]]]\n                       (q/arc (rand-int 28) (rand-int 28) (rand-int 50) (rand-int 200) 0 q/QUARTER-PI mode)))\n\n    (q/image gr 0 0)\n    (let [px (q/pixels gr)\n          half (/ (* size size) 2)]\n      (dotimes [i half] (aset-int px (+ i half) (aget px i))))\n    (q/update-pixels gr)\n    (pprint (q/pixels gr))\n    ;(println (q/get-pixel 24 20))\n    (q/no-loop)))\n\n\n(defn start-visualization []\n  \&quot;Create the Quil sketch.\&quot;\n  (q/sketch\n    :size [28 28]\n    :draw draw))\n\n\n\n(start-visualization)&quot;, :offset 2498, :ns &quot;visualize.core&quot;}], :remote []}}</component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
+  <component name="ReplState" timestamp="1587763948003">{:repl-history {:ide [], :local [{:command &quot;(ns visualize.core\n\n      (:require [quil.core :as q :include-macros true]          ;; add this\n                [quil.middleware :as middleware]))&quot;, :offset 146, :ns &quot;visualize.core&quot;} {:command &quot;(ns visualize.core\n\n  (:require [quil.core :as q :include-macros true]          ;; add this\n            [quil.middleware :as middleware]))\n\n(def viz-width 28)                                          ;; width of the visualization window in pixels\n(def viz-height 28)                                         ;; height of the visualization window in pixels\n\n(def viz-width_div_2 14)                                          ;; width of the visualization window in pixels\n(def viz-height_div_2 14)\n\n(defn grayscale-pixel [] (rand-int 255))\n\n(defn create-grayscale-pixels [dimension]\n  (vec (repeatedly dimension\n                   #(vec (repeatedly dimension grayscale-pixel)))))\n\n(defn visualize_pixels []\n  ;; set background color to white 255\n  (let [n (create-grayscale-pixels viz-width)\n        gr (q/background 255)\n        im (q/create-image viz-width viz-height :rgb)]\n\n    ;; randomly set this many pixels\n    (doseq [i (range viz-width)\n            j (range viz-height)]\n\n      (q/color-mode :hsb)\n\n      (let [b (get (get n i) j)]\n        (q/set-pixel im i j\n                     (q/color 0 0 b))))\n    (q/set-image 0 0 im))\n  (q/no-loop))\n\n;(defn start-visualization []\n;      \&quot;Create the Quil sketch.\&quot;\n;      (q/sketch\n;        :size [viz-width_div_2 viz-height_div_2]\n;        :draw visualize_pixels))\n;\n;\n;(start-visualization)\n\n(defn draw []\n  (q/background 255)\n  (let [size 28\n        gr (q/create-graphics 28 28)\n        im (q/create-image viz-width viz-height :rgb)]\n    (q/with-graphics gr\n                     ;; make it hsb\n                     (q/color-mode :hsb)\n                     (q/fill 0 0 (rand-int 255))\n\n                     ;; no outside line\n                     (q/stroke nil)\n\n                     ; draw arc\n                     ;; x, y, width, height, start, stop, mode (open, chord, pie)\n                     ;(q/arc 28 28 20 17 0 q/QUARTER-PI)\n                     ; draw different arc modes\n\n                     (doseq [[ind mode] [[0 :open] [1 :chord] [2 :pie]]]\n                       (q/arc (rand-int 28) (rand-int 28) (rand-int 50) (rand-int 200) 0 q/QUARTER-PI mode)))\n\n    (q/image gr 0 0)\n    (let [px (q/pixels gr)\n          half (/ (* size size) 2)]\n      (dotimes [i half] (aset-int px (+ i half) (aget px i))))\n    (q/update-pixels gr)\n    (pprint (q/pixels gr))\n    ;(println (q/get-pixel 24 20))\n    (q/no-loop)))\n\n\n(defn start-visualization []\n  \&quot;Create the Quil sketch.\&quot;\n  (q/sketch\n    :size [28 28]\n    :draw draw))\n\n\n\n(start-visualization)&quot;, :offset 2498, :ns &quot;visualize.core&quot;} {:command &quot;(ns visualize.core\n  (:require [quil.core :as q :include-macros true]          ;; add this\n            [quil.middleware :as middleware]))\n\n(def viz-width 28)                                          ;; width of the visualization window in pixels\n(def viz-height 28)                                         ;; height of the visualization window in pixels\n(def num_pixels 200)\n(def viz-width_div_2 14)                                    ;; width of the visualization window in pixels\n(def viz-height_div_2 14)\n\n(defn grayscale-pixel [] (rand-int 255))\n\n(defn create-grayscale-pixels [dimension]\n  (vec (repeatedly dimension\n                   #(vec (repeatedly dimension grayscale-pixel)))))\n\n;(def n (create-grayscale-pixels viz-width))\n;(print n)\n;(print (get (get n 1) 1))\n\n(defn visualize_pixels []\n  ;; set background color to white 255\n  (let [n (create-grayscale-pixels viz-width)\n        gr (q/background 255)\n        im (q/create-image viz-width viz-height :rgb)]\n\n    ;; randomly set this many pixels\n    (doseq [i (range viz-width)\n            j (range viz-height)]\n\n      (q/color-mode :hsb)\n\n      (let [b (get (get n i) j)]\n        (q/set-pixel im i j\n                     (q/color 0 0 b))))\n    (q/set-image 0 0 im))\n  (q/no-loop))\n\n\n\n(defn draw []\n  (q/background 255)\n  (let [size 28\n        gr (q/create-graphics 28 28)\n        im (q/create-image viz-width viz-height :rgb)]\n    (q/with-graphics gr\n                     ;; make it hsb\n                     (q/color-mode :hsb)\n                     (q/fill 0 0 (rand-int 255))\n\n                     ;; no outside line\n                     (q/stroke nil)\n\n                     ; draw arc\n                     ;; x, y, width, height, start, stop, mode (open, chord, pie)\n                     ;(q/arc 28 28 20 17 0 q/QUARTER-PI)\n                     ; draw different arc modes\n\n                     (doseq [[ind mode] [[0 :open] [1 :chord] [2 :pie]]]\n                       (q/arc (rand-int 28) (rand-int 28) (rand-int 50) (rand-int 200) 0 q/QUARTER-PI mode)))\n\n    (q/image gr 0 0)\n    (let [px (q/pixels gr)\n          half (/ (* size size) 2)]\n      (dotimes [i half] (aset-int px (+ i half) (aget px i))))\n    (q/update-pixels gr)\n    (clojure.pprint/pprint (q/pixels gr) (clojure.java.io/writer \&quot;jetbrains://idea/navigate/reference?project=deig&amp;path=quilvec.txt\&quot;))\n    ;(println (q/get-pixel 24 20))\n    (q/no-loop)\n    ))\n\n\n(defn start-visualization []\n  \&quot;Create the Quil sketch.\&quot;\n  (q/sketch\n    :size [28 28]\n    :draw draw))\n\n\n\n(start-visualizaation)\n\n\n\n\n&quot;, :offset 2524, :ns &quot;visualize.core&quot;} {:command &quot;(defn start-visualization []\n  \&quot;Create the Quil sketch.\&quot;\n  (q/sketch\n    :size [28 28]\n    :draw draw))&quot;, :offset 103, :ns &quot;visualize.core&quot;} {:command &quot;(start-visualizaation)&quot;, :offset 22, :ns &quot;visualize.core&quot;} {:command &quot;(ns visualize.core\n  (:require [quil.core :as q :include-macros true]          ;; add this\n            [quil.middleware :as middleware]))\n\n(def viz-width 28)                                          ;; width of the visualization window in pixels\n(def viz-height 28)                                         ;; height of the visualization window in pixels\n(def num_pixels 200)\n(def viz-width_div_2 14)                                    ;; width of the visualization window in pixels\n(def viz-height_div_2 14)\n\n(defn grayscale-pixel [] (rand-int 255))\n\n(defn create-grayscale-pixels [dimension]\n  (vec (repeatedly dimension\n                   #(vec (repeatedly dimension grayscale-pixel)))))\n\n;(def n (create-grayscale-pixels viz-width))\n;(print n)\n;(print (get (get n 1) 1))\n\n(defn visualize_pixels []\n  ;; set background color to white 255\n  (let [n (create-grayscale-pixels viz-width)\n        gr (q/background 255)\n        im (q/create-image viz-width viz-height :rgb)]\n\n    ;; randomly set this many pixels\n    (doseq [i (range viz-width)\n            j (range viz-height)]\n\n      (q/color-mode :hsb)\n\n      (let [b (get (get n i) j)]\n        (q/set-pixel im i j\n                     (q/color 0 0 b))))\n    (q/set-image 0 0 im))\n  (q/no-loop))\n\n\n\n(defn draw []\n  (q/background 255)\n  (let [size 28\n        gr (q/create-graphics 28 28)\n        im (q/create-image viz-width viz-height :rgb)]\n    (q/with-graphics gr\n                     ;; make it hsb\n                     (q/color-mode :hsb)\n                     (q/fill 0 0 (rand-int 255))\n\n                     ;; no outside line\n                     (q/stroke nil)\n\n                     ; draw arc\n                     ;; x, y, width, height, start, stop, mode (open, chord, pie)\n                     ;(q/arc 28 28 20 17 0 q/QUARTER-PI)\n                     ; draw different arc modes\n\n                     (doseq [[ind mode] [[0 :open] [1 :chord] [2 :pie]]]\n                       (q/arc (rand-int 28) (rand-int 28) (rand-int 50) (rand-int 200) 0 q/QUARTER-PI mode)))\n\n    (q/image gr 0 0)\n    (let [px (q/pixels gr)\n          half (/ (* size size) 2)]\n      (dotimes [i half] (aset-int px (+ i half) (aget px i))))\n    (q/update-pixels gr)\n    (clojure.pprint/pprint (q/pixels gr) (clojure.java.io/writer \&quot;/Users/sungkwak/Desktop/github/EC-Networks/deig/quilvec.txt\&quot;))\n    ;(println (q/get-pixel 24 20))\n    (q/no-loop)\n    ))\n\n\n(defn start-visualization []\n  \&quot;Create the Quil sketch.\&quot;\n  (q/sketch\n    :size [28 28]\n    :draw draw))\n\n\n\n(start-visualization)\n\n\n\n\n&quot;, :offset 2517, :ns &quot;visualize.core&quot;} {:command &quot;(defn draw []\n  (q/background 255)\n  (let [size 28\n        gr (q/create-graphics 28 28)\n        im (q/create-image viz-width viz-height :rgb)]\n    (q/with-graphics gr\n                     ;; make it hsb\n                     (q/color-mode :hsb)\n                     (q/fill 0 0 (rand-int 255))\n\n                     ;; no outside line\n                     (q/stroke nil)\n\n                     ; draw arc\n                     ;; x, y, width, height, start, stop, mode (open, chord, pie)\n                     ;(q/arc 28 28 20 17 0 q/QUARTER-PI)\n                     ; draw different arc modes\n\n                     (doseq [[ind mode] [[0 :open] [1 :chord] [2 :pie]]]\n                       (q/arc (rand-int 28) (rand-int 28) (rand-int 50) (rand-int 200) 0 q/QUARTER-PI mode)))\n\n    (q/image gr 0 0)\n    (let [px (q/pixels gr)\n          half (/ (* size size) 2)]\n      (dotimes [i half] (aset-int px (+ i half) (aget px i))))\n    (q/update-pixels gr)\n    (clojure.pprint/pprint (q/pixels gr) (clojure.java.io/writer \&quot;EC-Networks/deig/quilvec.txt\&quot;))\n    ;(println (q/get-pixel 24 20))\n    (q/no-loop)\n    ))&quot;, :offset 1102, :ns &quot;visualize.core&quot;} {:command &quot;(start-visualization)&quot;, :offset 21, :ns &quot;visualize.core&quot;}], :remote []}}</component>
   <component name="RunManager">
     <configuration name="REPL for visualize" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false" temporary="true">
       <module name="visualize" />
@@ -105,6 +46,7 @@
     <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
       <setting name="replType" value="NREPL" />
       <setting name="execution" value="LEININGEN" />
+      <module name="" />
       <setting name="jvmArgs" value="" />
       <setting name="parameters" value="" />
       <setting name="workingDir" value="" />
@@ -119,6 +61,7 @@
       <setting name="replType" value="SOCKET" />
       <setting name="configType" value="SPECIFY" />
       <setting name="fixLineNumbers" value="false" />
+      <module name="" />
       <method v="2" />
     </configuration>
     <recent_temporary>
@@ -126,6 +69,18 @@
         <item itemvalue="Clojure REPL.REPL for visualize" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -148,52 +103,12 @@
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
-  <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24949698" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" weight="0.32956153" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" weight="0.32956153" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info active="true" anchor="right" id="REPL" side_tool="true" visible="true" weight="0.32997987" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Leiningen" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
               <option name="COLUMN_ORDER" />
             </State>
           </value>
@@ -219,13 +134,10 @@
     <MESSAGE value="recommented the pprint on visualize to prevent breakage" />
     <option name="LAST_COMMIT_MESSAGE" value="recommented the pprint on visualize to prevent breakage" />
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/visualize/core.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="79" column="21" lean-forward="true" selection-start-line="79" selection-start-column="21" selection-end-line="79" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
+  <component name="WindowStateProjectService">
+    <state x="383" y="172" key="search.everywhere.popup" timestamp="1587762770332">
+      <screen x="0" y="23" width="1440" height="825" />
+    </state>
+    <state x="383" y="172" key="search.everywhere.popup/0.23.1440.825@0.23.1440.825" timestamp="1587762770332" />
   </component>
 </project>

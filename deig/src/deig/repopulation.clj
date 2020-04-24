@@ -174,14 +174,18 @@
     rgb
     genomeval))
 
-(defn mutate-quil-shape [quilvec genome]
+(defn mutate-quil-shape [genome]
   "Strips down the genome, applies a random color to the shape created by the quilvec,
   and place it on the current genome."
-  (let [stripped-genome (reduce into[] genome)
+  ;(run visualize code here to create a new quilvec)
+  (let [quilvec
+        ;example-quilvec
+        (read-string (slurp "quilvec.txt"))
+        stripped-genome (reduce into[] genome)
         rgb (if (true? rgb)
               (vec (take 3 (repeatedly #(rand-int 255))))
               [(rand-int 255)])
         transformed-quilvec (transform-vector quilvec)]
     (partitionv dimension (mapv #(alter-pixel rgb %1 %2) transformed-quilvec stripped-genome))))
 
-#_(mutate-quil-shape example-quilvec (:genome example-individual))
+#_(mutate-quil-shape (:genome example-individual))
