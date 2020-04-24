@@ -1,4 +1,5 @@
 (ns deig.repopulation
+  (:require [deig.visualize :as vis])
   (:gen-class))
 
 ;Set image dimensions here
@@ -175,11 +176,11 @@
     genomeval))
 
 (defn mutate-quil-shape [genome]
+  "Executes the start-visualization function to generate a new quilvec"
+  (vis/start-visualization)
   "Strips down the genome, applies a random color to the shape created by the quilvec,
   and place it on the current genome."
-  ;(run visualize code here to create a new quilvec)
   (let [quilvec
-        ;example-quilvec
         (read-string (slurp "quilvec.txt"))
         stripped-genome (reduce into[] genome)
         rgb (if (true? rgb)
