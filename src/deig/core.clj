@@ -125,22 +125,22 @@
 ;Set the color scheme we're operating on
 (def rgb false)
 
-(defn grayscale-pixel
-  []
-  (let [number (rand-int 256)] (vector number)))
-
-(defn create-grayscale-pixels [dimension]
-  (vec (repeatedly dimension
-                   #(vec (repeatedly dimension grayscale-pixel)))))
-
-
-(def example-individual
-  {:fitness 10 :genome (create-grayscale-pixels dimension) :generation 1})
-
-;(defn absolute-val [val]
-;  (if (< val 0)
-;    (* val -1)
-;    val))
+;(defn grayscale-pixel
+;  []
+;  (let [number (rand-int 256)] (vector number)))
+;
+;(defn create-grayscale-pixels [dimension]
+;  (vec (repeatedly dimension
+;                   #(vec (repeatedly dimension grayscale-pixel)))))
+;
+;
+;(def example-individual
+;  {:fitness 10 :genome (create-grayscale-pixels dimension) :generation 1})
+;
+;;(defn absolute-val [val]
+;;  (if (< val 0)
+;;    (* val -1)
+;;    val))
 ;
 (defn partitionv [n x]
   "Partitions into vecs within vecs"
@@ -196,16 +196,6 @@
   (vis/start-visualization)
   "Strips down the genome, applies a random color to the shape created by the quilvec,
   and place it on the current genome."
-
-  ;(try
-  ;  (let [quilvec (read-string (slurp "quilvec.txt"))
-  ;        stripped-genome (reduce into [] genome)
-  ;        rgb (if (true? rgb)
-  ;              (vec (take 3 (repeatedly #(rand-int 255))))
-  ;              [(rand-int 255)])
-  ;        transformed-quilvec (transform-vector quilvec)]
-  ;    (partitionv dimension (mapv #(alter-pixel rgb %1 %2) transformed-quilvec stripped-genome))))
-  ;  (catch Exception e (str "caught exception: " (.getMessage e))))
 
 
   (let [quilvec (read-string (slurp "quilvec.txt"))
