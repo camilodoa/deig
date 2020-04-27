@@ -1,5 +1,6 @@
 # Deep Evolutionary Image Generation
 
+<<<<<<< Updated upstream
 ## About
 
 We are evolving a population of images according to the criteria of a deep CNN classifier trained on a MNIST dataset. Our goal is producing artificial images that fool high-accuracy classifiers.
@@ -106,3 +107,17 @@ Notes people take are put in the `/text` directory.
 ## Communication
 
 We have a [Slack channel](https://join.slack.com/t/ec-networks/shared_invite/zt-d2zlhyvq-0nHuia~~UffdUTl8EGBUGg).
+=======
+## Tips
+
+When you try to run Quil on your own machine, you need to make sure that you are using an older version of Java. I use JDK 1.8.
+
+1. Download Java 1.8 from Oracle
+2. Go to your terminal and change directories to 
+Cd usr/libexec
+3. ./java_home -V
+4. export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+5. export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+6. Then change back to the directory you want to run and
+lein run
+>>>>>>> Stashed changes
