@@ -10,6 +10,9 @@
 (def viz-width_div_2 14)                                    ;; width of the visualization window in pixels
 (def viz-height_div_2 14)
 
+;; made it 1 instead of 0 so that the file would recognize it as a color
+(defn rand-color []
+  (if (> (rand-int 2) 0) 255 0))
 
 (defn draw []
   (q/background 255)
@@ -19,8 +22,9 @@
     (q/with-graphics gr
                      ;; make it hsb
                      (q/color-mode :hsb)
-                     (q/fill 0 0 (rand-int 255))
 
+                     ;(q/fill 0 0 (rand-color))
+                     (q/fill 0 0 (rand-color))
                      ;; no outside line
                      (q/stroke nil)
 
@@ -52,6 +56,7 @@
     ;(spit "quilvec.txt" (pp/pprint (q/pixels gr)))
     ;(println (q/get-pixel 24 20))
     (q/no-loop)
+    (q/exit)
     ))
 
 
