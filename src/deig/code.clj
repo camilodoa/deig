@@ -1,4 +1,4 @@
-;This code hasn't been tested or run yet because it has been finished. 
+;This code hasn't been tested or run yet because it has been finished.
 
 (def image-sizes (* 28 28)); For MINST
 
@@ -55,7 +55,7 @@
 	[i1 i2]
 	(if(> (fitness i1) (fitness i2))
 		i1
-		i2); 
+		i2);
 	)
 
 (defn evolve
