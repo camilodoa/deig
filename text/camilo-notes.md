@@ -42,3 +42,13 @@ generating images from limited data. In the
 paper, Wang et al. try to transfer GAN knowledge from pre-trained networks to
 another one. Similarly, we might want to pre-train a Discriminator network
 before the evolutionary process.
+
+## Future 
+
+- Colored images dataset 
+
+- Changing classifier to be **a particular number** and everything that isn't it
+
+
+
+For final portfolio --> Folder covering everything. Have an additional text file about what you did. A text file about what you learned and what you did in the future.
