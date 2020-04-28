@@ -1,4 +1,4 @@
-(ns deig.visualize
+(ns visualize.core
   (:require [quil.core :as q :include-macros true]          ;; add this
             [quil.middleware :as middleware]
             [clojure.pprint :as pp]))
