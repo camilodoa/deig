@@ -6,9 +6,7 @@
 
 (def viz-width 28)                                          ;; width of the visualization window in pixels
 (def viz-height 28)                                         ;; height of the visualization window in pixels
-(def num_pixels 200)
-(def viz-width_div_2 14)                                    ;; width of the visualization window in pixels
-(def viz-height_div_2 14)
+
 
 ;; made it 1 instead of 0 so that the file would recognize it as a color
 (defn rand-color []
@@ -37,24 +35,10 @@
                        (q/arc (rand-int 28) (rand-int 28) (rand-int 50) (rand-int 200) 0 q/QUARTER-PI mode)))
 
     (q/image gr 0 0)
-    ;(let [px (q/pixels gr)
-    ;      half (/ (* size size) 2)]
-    ;  (dotimes [i half] (aset-int px (+ i half) (aget px i))))
-    ;(q/update-pixels gr)
+
+
     (pp/pprint (q/pixels gr) (clojure.java.io/writer "quilvec.txt"))
 
-
-    ;(with-open [wrtr (writer "quilvec.txt")]
-    ;  (.write wrtr (pp/pprint (q/pixels gr))))
-    ;(def s (pp/pprint (q/pixels gr)))
-    ;(print s)
-
-    ;(with-open [wrtr (io/writer "quilvec.txt")]
-    ;  (.write wrtr s)
-    ;  (.close wrtr))
-
-    ;(spit "quilvec.txt" (pp/pprint (q/pixels gr)))
-    ;(println (q/get-pixel 24 20))
     (q/no-loop)
     (q/exit)
     ))

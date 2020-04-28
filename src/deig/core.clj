@@ -5,17 +5,7 @@
             [quil.middleware :as middleware]
             [clojure.pprint :as pp])
   (:gen-class))
-;Set image dimensions here
-(def dimension 28)
 
-;Set pixel change maximum here
-(def pixel-change-max 30)
-
-;Set the generation when we stop rapidly mutating
-(def rapid-mutation-gen 20)
-
-;Set the color scheme we're operating on
-(def rgb false)
 ;; Individual creation
 (defn grayscale-genome [dimension]
   "Returns random grayscale genome of dimensions dimension*dimension"
@@ -52,9 +42,6 @@
     (* val -1)
     val))
 
-(defn partitionv [n x]
-  "Partitions into vecs within vecs"
-  (mapv #(vec %) (partition n x)))
 
 ;; Mutation
 (defn mutate-channel [pixel]
@@ -116,63 +103,12 @@
 ;Set image dimensions here
 (def dimension 28)
 
-;Set pixel change maximum here
-(def pixel-change-max 30)
-
-;Set the generation when we stop rapidly mutating
-(def rapid-mutation-gen 20)
-
 ;Set the color scheme we're operating on
 (def rgb false)
 
-;(defn grayscale-pixel
-;  []
-;  (let [number (rand-int 256)] (vector number)))
-;
-;(defn create-grayscale-pixels [dimension]
-;  (vec (repeatedly dimension
-;                   #(vec (repeatedly dimension grayscale-pixel)))))
-;
-;
-;(def example-individual
-;  {:fitness 10 :genome (create-grayscale-pixels dimension) :generation 1})
-;
-;;(defn absolute-val [val]
-;;  (if (< val 0)
-;;    (* val -1)
-;;    val))
-;
 (defn partitionv [n x]
   "Partitions into vecs within vecs"
   (mapv #(vec %) (partition n x)))
-;
-;
-;(defn mutate-pixel [pixel mutation-chance]
-;  "Creates a mutated version of an individual's pixel"
-;  (if (< (rand) mutation-chance)
-;    (if (> (rand) 0.5)
-;      (mapv #(mod (+ (rand-int pixel-change-max) %) 255) pixel)
-;      (mapv #(absolute-val (- % (rand-int pixel-change-max))) pixel))
-;    pixel))
-;
-;
-;(defn mutate-pixels [genome mutation-chance]
-;  "This let function converts a 28x28x1 vector into a 784x1x1 for easy mutation"
-;  (let [stripped-genome (reduce into [] genome)]
-;    (mapv #(mutate-pixel % mutation-chance) stripped-genome)))
-
-;(defn mutate-image [genome current-gen]
-;  "If generation is below RMG (currently set to 20), rapidly mutate, otherwise slow it down"
-;  (let [new-genome
-;        (if (< current-gen rapid-mutation-gen)
-;          (mutate-pixels genome 0.25)
-;          (mutate-pixels genome 0.1))]
-;    (partitionv dimension new-genome)))
-
-
-
-#_(mutate-image (:genome example-individual) (:generation example-individual))
-
 
 (defn binary-convert [num]
   "Converts any nonzero values into 1"
@@ -207,7 +143,6 @@
 
     (partitionv dimension (mapv #(alter-pixel rgb %1 %2) transformed-quilvec stripped-genome))))
 
-#_(mutate-quil-shape (:genome example-individual))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
