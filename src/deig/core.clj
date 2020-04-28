@@ -202,7 +202,7 @@
         stripped-genome (reduce into [] genome)
         rgb (if (true? rgb)
               (vec (take 3 (repeatedly #(rand-int 255))))
-              [(if (> 0.5 rand) [0] [255])])
+              (if (> 0.5 (rand)) [0] [255]))
         transformed-quilvec (transform-vector quilvec)]
 
     (partitionv dimension (mapv #(alter-pixel rgb %1 %2) transformed-quilvec stripped-genome))))
