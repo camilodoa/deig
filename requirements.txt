@@ -1,4 +1,4 @@
-tensorflow==2.0
+tensorflow==2.4.2
 numpy
 pathlib
 keras_preprocessing
