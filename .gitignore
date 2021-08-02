@@ -1,5 +1,6 @@
 .DS_Store
 datasets/africa_fabric
+*.h5
 *.jpg
 *.jpg
 __pycache__/

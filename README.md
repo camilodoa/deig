@@ -31,6 +31,10 @@ brew install python3 # Download Python3 interpreter
 pip3 install -r requirements.txt # Install our python dependencies
 ```
 
+If you'd rather skip straight to evolving images, download [this mnist.h5](https://drive.google.com/file/d/1TUoh30XljT7BZSGSaLzOSmTcH2s_t_xX/view?usp=sharing) and place
+it in the repository's root directory (*this one*).
+
+
 #### Java
 
 When you try to run Quil on your own machine, you need to make sure that you are using an older version of Java. I use JDK 1.8.
