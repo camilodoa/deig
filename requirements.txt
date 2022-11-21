@@ -1,4 +1,4 @@
-tensorflow==2.4.2
+tensorflow==2.9.3
 tensorflow_datasets
 numpy
 pathlib
